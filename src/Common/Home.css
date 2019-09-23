@@ -1,0 +1,24 @@
+.home {
+  background-image: url("../Assets/singapore-shophouses.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: white;
+}
+
+.welcome-text h1 {
+  margin: 0;
+  font-size: 60px;
+  line-height: 1.35em;
+}
+
+.welcome-text p {
+  font-size: 32px;
+}
