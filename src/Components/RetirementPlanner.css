@@ -1,0 +1,35 @@
+.retirement-planner {
+  display: grid;
+  grid-template-areas: "form chart";
+  margin: 1% auto;
+  width: 80%;
+  grid-gap: 1%;
+}
+
+.savings-calculator {
+  grid-area: form;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2%;
+  font-size: 20px;
+  line-height: 1.35em;
+}
+
+.savings-calculator p {
+  margin: 1em 0px;
+}
+
+.retirement-lifestyle {
+  margin: 1em 0px;
+}
+
+.retirement-needs {
+  margin: 1em 0px;
+}
+
+.chart {
+  grid-area: chart;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2%;
+}
