@@ -1,9 +1,9 @@
 import React from "react";
-import { SavingsCalculator } from "./SavingsCalculator";
+import { RetirementPlannerForm } from "./RetirementPlannerForm";
 import { Chart } from "./Chart";
 import "./RetirementPlanner.css";
 
-export class Questionnaire extends React.Component {
+export class RetirementPlanner extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -47,8 +47,9 @@ export class Questionnaire extends React.Component {
     const retirementIncomeFactoringInflation =
       retirementIncome * (1 + inflationRate) ** lengthOfWorkingLife;
     const lengthOfRetirementInMonths = (passingAge - retirementAge) * 12;
-    const retirementFund =
-      Math.round(lengthOfRetirementInMonths * retirementIncomeFactoringInflation);
+    const retirementFund = Math.round(
+      lengthOfRetirementInMonths * retirementIncomeFactoringInflation
+    );
     const savingsPerYearNotInvested = Math.round(
       retirementFund / lengthOfWorkingLife
     );
@@ -84,9 +85,9 @@ export class Questionnaire extends React.Component {
     }
 
     this.setState({
-      retirementFund: retirementFund,
-      savingsPerMonthNotInvested: savingsPerMonthNotInvested,
-      monthlyContributionInvested: monthlyContributionInvested,
+      retirementFund: retirementFund.toLocaleString(),
+      savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(),
+      monthlyContributionInvested: monthlyContributionInvested.toLocaleString(),
       savingsData: savingsData,
       savingsInvestedData: savingsInvestedData
     });
@@ -96,7 +97,7 @@ export class Questionnaire extends React.Component {
     return (
       <div className="retirement-planner">
         <div className="savings-calculator">
-          <SavingsCalculator
+          <RetirementPlannerForm
             currentAge={this.state.currentAge}
             retirementAge={this.state.retirementAge}
             passingAge={this.state.passingAge}

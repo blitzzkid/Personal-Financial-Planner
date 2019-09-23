@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SavingsCalculator = props => {
+export const RetirementPlannerForm = props => {
   return (
     <div>
       <div>
@@ -14,7 +14,6 @@ export const SavingsCalculator = props => {
           onChange={event => props.inputCurrentAge(event)}
         />
       </p>
-      {/* <div>{props.currentAge}</div> */}
       <p>
         <label htmlFor="retirement-age">
           At what age do you plan to retire?
@@ -25,7 +24,6 @@ export const SavingsCalculator = props => {
           onChange={event => props.inputRetirementAge(event)}
         />
       </p>
-      {/* <div>{props.retirementAge}</div> */}
       <div className="retirement-lifestyle">
         <h2>Your retirement lifestyle</h2>
       </div>
@@ -35,7 +33,6 @@ export const SavingsCalculator = props => {
         id="passing-age"
         onChange={event => props.inputPassingAge(event)}
       />
-      {/* <div>{props.passingAge}</div> */}
       <p>
         <label htmlFor="retirement-income">
           Desired monthly income (in today's value)
@@ -46,7 +43,6 @@ export const SavingsCalculator = props => {
           onChange={event => props.inputRetirementIncome(event)}
         />
       </p>
-      {/* <div>{props.retirementIncome}</div> */}
       <button onClick={props.calculateRetirementFund}>Calculate</button>
       <div className="retirement-needs">
         <h2>Your Retirement Needs</h2>

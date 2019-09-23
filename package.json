@@ -32,5 +32,11 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "./src/serviceWorker.js",
+      "./src/index.js"
+    ]
   }
 }

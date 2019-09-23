@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Questionnaire } from "./Components/Questionnaire";
+import { RetirementPlanner } from "./Components/RetirementPlanner";
 
 export default function App() {
   return (
     <div>
-      <Questionnaire />
+      <RetirementPlanner />
     </div>
   );
 }
