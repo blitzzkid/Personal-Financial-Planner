@@ -43,6 +43,19 @@ export const RetirementPlannerForm = props => {
           onChange={event => props.inputRetirementIncome(event)}
         />
       </p>
+      <div className="risk-appetite">
+        <h2>Your risk appetite</h2>
+      </div>
+      <p>
+        <label htmlFor="target-returns">
+          What is your targeted annual returns on investment? (in %)
+        </label>
+        <input
+          type="number"
+          id="target-returns"
+          onChange={event => props.inputInterestRate(event)}
+        />
+      </p>
       <button onClick={props.calculateRetirementFund}>Calculate</button>
       <div className="retirement-needs">
         <h2>Your Retirement Needs</h2>
@@ -51,7 +64,7 @@ export const RetirementPlannerForm = props => {
       <div> $ {props.retirementFund}</div>
       <div>Monthly contribution required (not invested)</div>
       <div>$ {props.savingsPerMonthNotInvested}</div>
-      <div>Monthly contribution required (invested at 5% ROI)</div>
+      <div>Monthly contribution required (At your target ROI) </div>
       <div>$ {props.monthlyContributionInvested}</div>
     </div>
   );

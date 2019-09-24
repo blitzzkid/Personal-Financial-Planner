@@ -32,6 +32,9 @@ export class RetirementPlanner extends React.Component {
   inputRetirementIncome = event => {
     this.setState({ retirementIncome: event.target.value });
   };
+  inputInterestRate = event => {
+    this.setState({ interestRate: event.target.value / 100 });
+  };
   calculateRetirementFund = () => {
     const {
       currentAge,
@@ -98,15 +101,17 @@ export class RetirementPlanner extends React.Component {
       <div className="retirement-planner">
         <div className="savings-calculator">
           <RetirementPlannerForm
-            currentAge={this.state.currentAge}
-            retirementAge={this.state.retirementAge}
-            passingAge={this.state.passingAge}
-            retirementIncome={this.state.retirementIncome}
+            // currentAge={this.state.currentAge}
+            // retirementAge={this.state.retirementAge}
+            // passingAge={this.state.passingAge}
+            // retirementIncome={this.state.retirementIncome}
+            // interestRate={this.state.interestRate}
             retirementFund={this.state.retirementFund}
             inputCurrentAge={this.inputCurrentAge}
             inputPassingAge={this.inputPassingAge}
             inputRetirementAge={this.inputRetirementAge}
             inputRetirementIncome={this.inputRetirementIncome}
+            inputInterestRate={this.inputInterestRate}
             calculateRetirementFund={this.calculateRetirementFund}
             savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
             monthlyContributionInvested={this.state.monthlyContributionInvested}
