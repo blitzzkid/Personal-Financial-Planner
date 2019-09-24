@@ -1,6 +1,6 @@
 import React from "react";
 import "./FundsTable.css";
-import { FundsList, Placeholder } from "./FundsData";
+import { FundsData } from "./FundsData";
 
 export const FundsTable = () => {
   return (
@@ -11,7 +11,7 @@ export const FundsTable = () => {
         </tr>
       </thead>
       <tbody>
-        <Placeholder />
+        <FundsData />
       </tbody>
     </table>
   );
@@ -37,7 +37,7 @@ export const TableHeader = () => {
 export const TableBodyRow = props => {
   return (
     <React.Fragment>
-      {props.items.data.map(item => (
+      {props.items.map(item => (
         <tr key={item.symbol}>
           <td>{item.symbol}</td>
           <td>{item.name}</td>
