@@ -1,5 +1,5 @@
 import React from "react";
-import { FundsTable } from "./FundsTable";
+import { TableBodyRow } from "./FundsTable";
 import { localSampleData } from "../Assets/localsampledata";
 
 // export class FundsData extends React.Component {
@@ -40,39 +40,25 @@ import { localSampleData } from "../Assets/localsampledata";
 //     } else if (!isLoaded) {
 //       return <div>Loading...</div>;
 //     } else {
-//       return "Hello World";
+//       return <FundsList list={items}/>;
 //     }
 //   }
 // }
 
-export const sampleData = () => {
-  const sampleData = localSampleData;
-  return (
-    <div>
-      <FundsList list={sampleData} />
-    </div>
-  );
-};
+// export const Placeholder = () => {
+//   return (
+//     <div>
+//       <FundsList list={localSampleData} />
+//     </div>
+//   );
+// };
 
-export const FundsList = props => {
+export const Placeholder = props => {
+  // console.log(props.list)
+  // console.log(typeof props.list)
   return (
-    <div>
-      {localSampleData.map(fund => {
-        return (
-          <FundsTable
-            symbol={fund.symbol}
-            name={fund.name}
-            price={fund.price}
-            returnytd={fund.return_ytd}
-            return1month={fund.return_4week}
-            return1quarter={fund.return_13week}
-            return1year={fund.return_52week}
-            return3year={fund.return_156week}
-            return5year={fund.return_260week}
-            expenseratio={fund.expense_ratio}
-          />
-        );
-      })}
-    </div>
+    <React.Fragment>
+      <TableBodyRow items={localSampleData} />
+    </React.Fragment>
   );
 };

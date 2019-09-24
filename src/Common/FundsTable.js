@@ -1,8 +1,8 @@
 import React from "react";
 import "./FundsTable.css";
-// import { FundsList } from "./FundsData";
+import { FundsList, Placeholder } from "./FundsData";
 
-export const FundsTable = props => {
+export const FundsTable = () => {
   return (
     <table className="funds-table">
       <thead>
@@ -11,20 +11,7 @@ export const FundsTable = props => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <TableBodyRow
-            symbol={props.symbol}
-            name={props.name}
-            price={props.price}
-            returnytd={props.returnytd}
-            return1month={props.return1month}
-            return1quarter={props.return1quarter}
-            return1year={props.return1year}
-            return3year={props.return3year}
-            return5year={props.return5year}
-            expenseratio={props.expenseratio}
-          />
-        </tr>
+        <Placeholder />
       </tbody>
     </table>
   );
@@ -50,16 +37,20 @@ export const TableHeader = () => {
 export const TableBodyRow = props => {
   return (
     <React.Fragment>
-      <td>{props.symbol}</td>
-      <td>{props.name}</td>
-      <td>{props.price}</td>
-      <td>{props.returnytd}</td>
-      <td>{props.return1month}</td>
-      <td>{props.return1quarter}</td>
-      <td>{props.return1year}</td>
-      <td>{props.return3year}</td>
-      <td>{props.return5year}</td>
-      <td>{props.expenseratio}</td>
+      {props.items.data.map(item => (
+        <tr key={item.symbol}>
+          <td>{item.symbol}</td>
+          <td>{item.name}</td>
+          <td>{item.price}</td>
+          <td>{item.return_ytd}</td>
+          <td>{item.return_4week}</td>
+          <td>{item.return_13week}</td>
+          <td>{item.return_52week}</td>
+          <td>{item.return_156week}</td>
+          <td>{item.return_260week}</td>
+          <td>{item.expense_ratio}</td>
+        </tr>
+      ))}
     </React.Fragment>
   );
 };
