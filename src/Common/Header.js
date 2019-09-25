@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div>
       <Link to="/">Home</Link>
-      <Link to="housing">Housing</Link>
+      <Link to="/savings">Savings</Link>
       <Link to="/retirement">Retirement</Link>
     </div>
   );

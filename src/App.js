@@ -9,7 +9,7 @@ import {
 import { Home } from "./Common/Home";
 import { Header } from "./Common/Header";
 import { RetirementPlanner } from "./Components/RetirementPlanner";
-import { HousingPlanner } from "./Components/HousingPlanner";
+import { SavingsPlanner } from "./Components/SavingsPlanner";
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/retirement" component={RetirementPlanner} />
-          <Route exact path="/housing" component={HousingPlanner} />
+          <Route exact path="/savings" component={SavingsPlanner} />
           <Redirect to="/" />
         </Switch>
       </div>
