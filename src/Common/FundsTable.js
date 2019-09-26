@@ -1,10 +1,9 @@
 import React from "react";
-import "./FundsTable.css";
 import { FundsData } from "./FundsData";
 
 export const FundsTable = props => {
   return (
-    <table className="funds-table">
+    <table>
       <thead>
         <tr>
           <TableHeader />

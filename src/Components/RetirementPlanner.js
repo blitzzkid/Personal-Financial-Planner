@@ -54,9 +54,7 @@ export class RetirementPlanner extends React.Component {
     const retirementFund = Math.round(
       lengthOfRetirementInMonths * retirementIncomeFactoringInflation
     );
-    const savingsPerYearNotInvested = Math.round(
-      retirementFund / lengthOfWorkingLife
-    );
+    const savingsPerYearNotInvested = retirementFund / lengthOfWorkingLife;
     const savingsPerMonthNotInvested = Math.round(
       savingsPerYearNotInvested / 12
     );
@@ -69,10 +67,9 @@ export class RetirementPlanner extends React.Component {
       savingsData.push(dataPoint);
       j += 1;
     }
-    const yearlyContributionInvested = Math.round(
+    const yearlyContributionInvested =
       (retirementFund * interestRate) /
-        ((1 + interestRate) ** lengthOfWorkingLife - 1)
-    );
+      ((1 + interestRate) ** lengthOfWorkingLife - 1);
     const monthlyContributionInvested = Math.round(
       yearlyContributionInvested / 12
     );
@@ -80,10 +77,9 @@ export class RetirementPlanner extends React.Component {
     for (let i = currentAge; i <= retirementAge; i++) {
       let dataPoint = {};
       dataPoint.x = i;
-      dataPoint.y = Math.round(
+      dataPoint.y =
         (yearlyContributionInvested / interestRate) *
-          ((1 + interestRate) ** k - 1)
-      );
+        ((1 + interestRate) ** k - 1);
       savingsInvestedData.push(dataPoint);
       k += 1;
     }

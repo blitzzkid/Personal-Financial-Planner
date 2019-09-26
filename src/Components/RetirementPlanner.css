@@ -36,4 +36,5 @@
 
 .funds-table {
   grid-area: table;
+  border: 1px solid black;
 }
