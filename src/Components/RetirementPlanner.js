@@ -3,6 +3,16 @@ import { RetirementPlannerForm } from "./RetirementPlannerForm";
 import { Chart } from "./Chart";
 import { FundsTable } from "../Common/FundsTable";
 import "./RetirementPlanner.css";
+import {
+  lengthOfWorkingLife,
+  calculateRetirementFund,
+  calculateSavingsPerYearNotInvested,
+  calculateSavingsPerMonthNotInvested,
+  calculateSavingsPerYearInvested,
+  calculateSavingsPerMonthInvested,
+  generateSavingsNotInvestedData,
+  generateSavingsInvestedData
+} from "./SavingsCalculations";
 
 export class RetirementPlanner extends React.Component {
   constructor() {
@@ -15,10 +25,10 @@ export class RetirementPlanner extends React.Component {
       retirementFund: 0,
       inflationRate: 0.02,
       interestRate: 0.05,
-      savingsData: [],
+      savingsNotInvestedData: [],
       savingsInvestedData: [],
       savingsPerMonthNotInvested: 0,
-      monthlyContributionInvested: 0
+      savingsPerMonthInvested: 0
     };
   }
   inputCurrentAge = event => {
@@ -43,53 +53,50 @@ export class RetirementPlanner extends React.Component {
       passingAge,
       retirementIncome,
       inflationRate,
-      interestRate,
-      savingsData,
-      savingsInvestedData
+      interestRate
     } = this.state;
-    const lengthOfWorkingLife = retirementAge - currentAge;
-    const retirementIncomeFactoringInflation =
-      retirementIncome * (1 + inflationRate) ** lengthOfWorkingLife;
-    const lengthOfRetirementInMonths = (passingAge - retirementAge) * 12;
-    const retirementFund = Math.round(
-      lengthOfRetirementInMonths * retirementIncomeFactoringInflation
-    );
-    const savingsPerYearNotInvested = retirementFund / lengthOfWorkingLife;
-    const savingsPerMonthNotInvested = Math.round(
-      savingsPerYearNotInvested / 12
-    );
 
-    let j = 1;
-    for (let i = currentAge; i <= retirementAge; i++) {
-      let dataPoint = {};
-      dataPoint.x = i;
-      dataPoint.y = savingsPerYearNotInvested * j;
-      savingsData.push(dataPoint);
-      j += 1;
-    }
-    const yearlyContributionInvested =
-      (retirementFund * interestRate) /
-      ((1 + interestRate) ** lengthOfWorkingLife - 1);
-    const monthlyContributionInvested = Math.round(
-      yearlyContributionInvested / 12
+    const workingLife = lengthOfWorkingLife(currentAge, retirementAge);
+    const retirementFund = calculateRetirementFund(
+      currentAge,
+      retirementAge,
+      passingAge,
+      retirementIncome,
+      inflationRate
     );
-    let k = 1;
-    for (let i = currentAge; i <= retirementAge; i++) {
-      let dataPoint = {};
-      dataPoint.x = i;
-      dataPoint.y =
-        (yearlyContributionInvested / interestRate) *
-        ((1 + interestRate) ** k - 1);
-      savingsInvestedData.push(dataPoint);
-      k += 1;
-    }
+    const savingsPerYearNotInvested = calculateSavingsPerYearNotInvested(
+      workingLife,
+      retirementFund
+    );
+    const savingsPerMonthNotInvested = calculateSavingsPerMonthNotInvested(
+      savingsPerYearNotInvested
+    );
+    const savingsPerYearInvested = calculateSavingsPerYearInvested(
+      workingLife,
+      retirementFund,
+      interestRate
+    );
+    const savingsPerMonthInvested = calculateSavingsPerMonthInvested(
+      savingsPerYearInvested
+    );
+    const savingsData = generateSavingsNotInvestedData(
+      currentAge,
+      retirementAge,
+      savingsPerYearNotInvested
+    );
+    const investmentsData = generateSavingsInvestedData(
+      currentAge,
+      retirementAge,
+      interestRate,
+      savingsPerYearInvested
+    );
 
     this.setState({
       retirementFund: retirementFund.toLocaleString(),
       savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(),
-      monthlyContributionInvested: monthlyContributionInvested.toLocaleString(),
-      savingsData: savingsData,
-      savingsInvestedData: savingsInvestedData
+      savingsPerMonthInvested: savingsPerMonthInvested,
+      savingsNotInvestedData: savingsData,
+      savingsInvestedData: investmentsData
     });
   };
 
@@ -106,12 +113,12 @@ export class RetirementPlanner extends React.Component {
             inputInterestRate={this.inputInterestRate}
             calculateRetirementFund={this.calculateRetirementFund}
             savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
-            monthlyContributionInvested={this.state.monthlyContributionInvested}
+            monthlyContributionInvested={this.state.savingsPerMonthInvested}
           />
         </div>
         <div className="chart">
           <Chart
-            savingsData={this.state.savingsData}
+            savingsData={this.state.savingsNotInvestedData}
             savingsInvestedData={this.state.savingsInvestedData}
           />
         </div>

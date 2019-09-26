@@ -1,10 +1,12 @@
-const dataPractice = (
+export const lengthOfWorkingLife = (currentAge, retirementAge) =>
+  retirementAge - currentAge;
+
+export const calculateRetirementFund = (
   currentAge,
   retirementAge,
   passingAge,
   retirementIncome,
-  inflationRate,
-  interestRate
+  inflationRate
 ) => {
   const lengthOfWorkingLife = retirementAge - currentAge;
   const retirementIncomeFactoringInflation =
@@ -12,47 +14,63 @@ const dataPractice = (
   const lengthOfRetirementInMonths = (passingAge - retirementAge) * 12;
   const retirementFund =
     lengthOfRetirementInMonths * retirementIncomeFactoringInflation;
-  const workingSavingsPerYear = Math.round(
-    retirementFund / lengthOfWorkingLife
+  return retirementFund;
+};
+
+export const calculateSavingsPerYearNotInvested = (
+  workingLife,
+  retirementFund
+) => {
+  return retirementFund / workingLife;
+};
+export const calculateSavingsPerMonthNotInvested = savingsPerYearNotInvested =>
+  savingsPerYearNotInvested / 12;
+
+export const calculateSavingsPerYearInvested = (
+  workingLife,
+  retirementFund,
+  interestRate
+) => {
+  return (
+    (retirementFund * interestRate) / ((1 + interestRate) ** workingLife - 1)
   );
-  const workingSavingsPerMonth = Math.round(workingSavingsPerYear / 12);
+};
 
-  console.log("retirement Fund", retirementFund);
-  console.log("working Savings Per Year", workingSavingsPerYear);
-  console.log("Working savings per month", workingSavingsPerMonth);
+export const calculateSavingsPerMonthInvested = calculateSavingsPerYearInvested =>
+  calculateSavingsPerYearInvested / 12;
 
+export const generateSavingsNotInvestedData = (
+  currentAge,
+  retirementAge,
+  savingsPerYearNotInvested
+) => {
   const savingsData = [];
   let j = 1;
   for (let i = currentAge; i <= retirementAge; i++) {
     let dataPoint = {};
     dataPoint.x = i;
-    dataPoint.y = workingSavingsPerYear * j;
+    dataPoint.y = savingsPerYearNotInvested * j;
     savingsData.push(dataPoint);
     j += 1;
   }
-  // console.log(savingsData)
-  const yearlyContributionInvested = Math.round(
-    (retirementFund * interestRate) /
-      ((1 + interestRate) ** lengthOfWorkingLife - 1)
-  );
-  const monthlyContributionInvested = Math.round(
-    yearlyContributionInvested / 12
-  );
-  console.log("yearly contribution invested", yearlyContributionInvested);
-  console.log("monthly contribution invested", monthlyContributionInvested);
-  const savingsInvestedData = [];
+  return savingsData;
+};
+
+export const generateSavingsInvestedData = (
+  currentAge,
+  retirementAge,
+  interestRate,
+  savingsPerYearInvested
+) => {
+  const investmentsData = [];
   let k = 1;
   for (let i = currentAge; i <= retirementAge; i++) {
     let dataPoint = {};
     dataPoint.x = i;
-    dataPoint.y = Math.round(
-      (yearlyContributionInvested / interestRate) *
-        ((1 + interestRate) ** k - 1)
-    );
-    savingsInvestedData.push(dataPoint);
+    dataPoint.y =
+      (savingsPerYearInvested / interestRate) * ((1 + interestRate) ** k - 1);
+    investmentsData.push(dataPoint);
     k += 1;
   }
-  console.log(savingsInvestedData);
+  return investmentsData;
 };
-
-dataPractice(30, 60, 80, 100, 0.0, 0.05);
