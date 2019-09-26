@@ -36,7 +36,9 @@ export class Chart extends React.Component {
             <Hint value={savingsDataPoint}>
               <div style={savingsTipStyle}>
                 <div style={boxStyle}>Age: {savingsDataPoint.x}</div>
-                <div style={boxStyle}>Savings: ${savingsDataPoint.y.toLocaleString()}</div>
+                <div style={boxStyle}>
+                  Savings: ${savingsDataPoint.y.toLocaleString()}
+                </div>
               </div>
             </Hint>
           )}
@@ -54,7 +56,9 @@ export class Chart extends React.Component {
             <Hint value={investedDataPoint}>
               <div style={investedTipStyle}>
                 <div style={boxStyle}>Age: {investedDataPoint.x}</div>
-                <div style={boxStyle}>Savings: ${investedDataPoint.y.toLocaleString()}</div>
+                <div style={boxStyle}>
+                  Savings: ${investedDataPoint.y.toLocaleString()}
+                </div>
               </div>
             </Hint>
           )}

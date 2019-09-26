@@ -46,16 +46,4 @@ describe("Renders out the table correctly", () => {
       expect(getByText("Expense ratio")).toBeInTheDocument();
     });
   });
-  describe("Renders out the funds data correctly", () => {
-    it("Shows the fund's symbol", () => {
-      const { getByText } = render(<FundsTable />);
-      expect(getByText("AAAAX")).toBeInTheDocument();
-    });
-    it("Shows the fund's Name", () => {
-      const { getByText } = render(<FundsTable />);
-      expect(
-        getByText("DWS RREEF Real Assets Fund - Class A")
-      ).toBeInTheDocument();
-    });
-  });
 });
