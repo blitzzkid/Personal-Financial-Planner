@@ -1,6 +1,7 @@
 import React from "react";
 import { RetirementPlannerForm } from "./RetirementPlannerForm";
 import { Chart } from "./Chart";
+import { FundsTable } from "../Common/FundsTable";
 import "./RetirementPlanner.css";
 
 export class RetirementPlanner extends React.Component {
@@ -101,11 +102,6 @@ export class RetirementPlanner extends React.Component {
       <div className="retirement-planner">
         <div className="savings-calculator">
           <RetirementPlannerForm
-            // currentAge={this.state.currentAge}
-            // retirementAge={this.state.retirementAge}
-            // passingAge={this.state.passingAge}
-            // retirementIncome={this.state.retirementIncome}
-            // interestRate={this.state.interestRate}
             retirementFund={this.state.retirementFund}
             inputCurrentAge={this.inputCurrentAge}
             inputPassingAge={this.inputPassingAge}
@@ -122,6 +118,9 @@ export class RetirementPlanner extends React.Component {
             savingsData={this.state.savingsData}
             savingsInvestedData={this.state.savingsInvestedData}
           />
+        </div>
+        <div className="funds-table">
+          <FundsTable interestRate={this.state.interestRate} />
         </div>
       </div>
     );

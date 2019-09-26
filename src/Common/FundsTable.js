@@ -2,7 +2,7 @@ import React from "react";
 import "./FundsTable.css";
 import { FundsData } from "./FundsData";
 
-export const FundsTable = () => {
+export const FundsTable = props => {
   return (
     <table className="funds-table">
       <thead>
@@ -11,7 +11,7 @@ export const FundsTable = () => {
         </tr>
       </thead>
       <tbody>
-        <FundsData />
+        <FundsData interestRate={props.interestRate} />
       </tbody>
     </table>
   );
@@ -35,22 +35,27 @@ export const TableHeader = () => {
 };
 
 export const TableBodyRow = props => {
+  const interestRate = props.interestRate * 100;
   return (
     <React.Fragment>
-      {props.items.map(item => (
-        <tr key={item.symbol}>
-          <td>{item.symbol}</td>
-          <td>{item.name}</td>
-          <td>{item.price}</td>
-          <td>{item.return_ytd}</td>
-          <td>{item.return_4week}</td>
-          <td>{item.return_13week}</td>
-          <td>{item.return_52week}</td>
-          <td>{item.return_156week}</td>
-          <td>{item.return_260week}</td>
-          <td>{item.expense_ratio}</td>
-        </tr>
-      ))}
+      {props.items
+        .filter(fund => {
+          return fund.return_260week > interestRate;
+        })
+        .map(item => (
+          <tr key={item.symbol}>
+            <td>{item.symbol}</td>
+            <td>{item.name}</td>
+            <td>{item.price}</td>
+            <td>{item.return_ytd}</td>
+            <td>{item.return_4week}</td>
+            <td>{item.return_13week}</td>
+            <td>{item.return_52week}</td>
+            <td>{item.return_156week}</td>
+            <td>{item.return_260week}</td>
+            <td>{item.expense_ratio}</td>
+          </tr>
+        ))}
     </React.Fragment>
   );
 };
