@@ -61,16 +61,20 @@ export const RetirementPlannerForm = props => {
           onChange={event => props.inputInterestRate(event)}
         />
       </p>
-      <button data-testid={"calculate-button"} onClick={props.calculateRetirementFund}>Calculate</button>
+      <button onClick={props.calculateRetirementFund}>Calculate</button>
       <div className="retirement-needs">
         <h2>Your Retirement Needs</h2>
       </div>
       <div>Retirement Fund (accounting for inflation of 2%)</div>
-      <div data-testid={"retirement-fund"}> ${props.retirementFund}</div>
+      <div data-testid={"retirement-fund"}>${props.retirementFund}</div>
       <div>Monthly contribution required (not invested)</div>
-      <div data-testid={"contribution-saved"}>${props.savingsPerMonthNotInvested}</div>
+      <div data-testid={"contribution-saved"}>
+        ${props.savingsPerMonthNotInvested}
+      </div>
       <div>Monthly contribution required (At your target ROI)</div>
-      <div data-testid={"contribution-invested"}>${props.monthlyContributionInvested}</div>
+      <div data-testid={"contribution-invested"}>
+        ${props.monthlyContributionInvested}
+      </div>
     </div>
   );
 };
