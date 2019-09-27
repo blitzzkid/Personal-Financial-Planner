@@ -92,8 +92,8 @@ export class RetirementPlanner extends React.Component {
     );
 
     this.setState({
-      retirementFund: retirementFund.toLocaleString(),
-      savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(),
+      retirementFund: retirementFund,
+      savingsPerMonthNotInvested: savingsPerMonthNotInvested,
       savingsPerMonthInvested: savingsPerMonthInvested,
       savingsNotInvestedData: savingsData,
       savingsInvestedData: investmentsData
@@ -103,9 +103,11 @@ export class RetirementPlanner extends React.Component {
   render() {
     return (
       <div>
-        <div className="header"></div>
+        <div className="header">
+          <h1>Retirement Planner</h1>
+        </div>
         <div className="retirement-planner">
-          <div className="savings-calculator">
+          <div className="questionnaire-and-numbers">
             <RetirementPlannerForm
               retirementFund={this.state.retirementFund}
               inputCurrentAge={this.inputCurrentAge}

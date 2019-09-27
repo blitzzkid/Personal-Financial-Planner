@@ -5,17 +5,15 @@ import { RetirementPlannerForm } from "./RetirementPlannerForm";
 
 describe("The retirement calculator page", () => {
   describe("It renders the headings, questions and statements correctly", () => {
-    it("Shows the heading 'Your working and retirement years'", () => {
+    it("Shows the heading 'Knowing more about you'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
-      expect(
-        getByText("Your working and retirement years")
-      ).toBeInTheDocument();
+      expect(getByText("Knowing more about you")).toBeInTheDocument();
     });
-    it("Shows the question 'What is your current age'", () => {
+    it("Shows the question 'How old are you now?'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
-      expect(getByText("What is your current age?")).toBeInTheDocument();
+      expect(getByText("How old are you now?")).toBeInTheDocument();
     });
-    it("Shows the input box for 'What is your current age'", () => {
+    it("Shows the input box for 'How old are you now?'", () => {
       const { getByLabelText } = render(<RetirementPlannerForm />);
       expect(getByLabelText("current-age")).toBeInTheDocument();
     });
@@ -25,56 +23,52 @@ describe("The retirement calculator page", () => {
         getByText("At what age do you plan to retire?")
       ).toBeInTheDocument();
     });
-    it("Shows the heading 'Your retirement lifestyle'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
-      expect(getByText("Your retirement lifestyle")).toBeInTheDocument();
-    });
     it("Shows the question 'How old do you expect to live until?'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
         getByText("How old do you expect to live until?")
       ).toBeInTheDocument();
     });
-    it("Shows the question 'Desired monthly income (in today's value)'", () => {
+    it("Shows the question 'How much money would you like to have per month during retirement?'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
-        getByText("Desired monthly income (in today's value)")
+        getByText(
+          "How much money would you like to have per month during retirement?"
+        )
       ).toBeInTheDocument();
     });
-    it("Shows the heading 'Your risk appetite'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
-      expect(getByText("Your risk appetite")).toBeInTheDocument();
-    });
-    it("Shows the question 'What is your targeted annual returns on investment? (in %)'", () => {
+    it("Shows the question 'What is your targeted annual returns on investment?'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
-        getByText("What is your targeted annual returns on investment? (in %)")
+        getByText("What is your targeted annual returns on investment?")
       ).toBeInTheDocument();
     });
-    it("Shows the Calculate button'", () => {
+    it("Shows the Plan for retirement button'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(getByText("Calculate")).toBeInTheDocument();
     });
-    it("Shows the heading 'Your Retirement Needs'", () => {
+    it("Shows the heading 'Your retirement needs'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
-      expect(getByText("Your Retirement Needs")).toBeInTheDocument();
+      expect(getByText("Your retirement needs")).toBeInTheDocument();
     });
-    it("Shows the statement 'Retirement Fund (accounting for inflation of 2%)'", () => {
+    it("Shows the statement 'Retirement fund required (accounting for 2% inflation)'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
-        getByText("Retirement Fund (accounting for inflation of 2%)")
+        getByText("Retirement fund required (accounting for 2% inflation)")
       ).toBeInTheDocument();
     });
-    it("Shows the statement 'Monthly contribution required (not invested)'", () => {
+    it("Shows the statement 'Savings per month required if you don't invest'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
-        getByText("Monthly contribution required (not invested)")
+        getByText("Savings per month required if you don't invest")
       ).toBeInTheDocument();
     });
-    it("Shows the statement 'Monthly contribution required (At your target ROI)'", () => {
+    it("Shows the statement 'Savings per month required if you meet your target investment returns'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
       expect(
-        getByText("Monthly contribution required (At your target ROI)")
+        getByText(
+          "Savings per month required if you meet your target investment returns"
+        )
       ).toBeInTheDocument();
     });
   });

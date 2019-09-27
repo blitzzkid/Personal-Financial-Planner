@@ -1,5 +1,6 @@
 import React from "react";
 import { FundsData } from "./FundsData";
+import '../Components/RetirementPlanner.css'
 
 export const FundsTable = props => {
   return (
@@ -44,7 +45,7 @@ export const TableBodyRow = props => {
         .map(item => (
           <tr key={item.symbol}>
             <td>{item.symbol}</td>
-            <td>{item.name}</td>
+            <td id="name">{item.name}</td>
             <td>{item.price}</td>
             <td>{item.return_ytd}</td>
             <td>{item.return_4week}</td>

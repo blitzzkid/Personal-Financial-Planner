@@ -24,7 +24,7 @@ export class Chart extends React.Component {
           <YAxis title="Savings ($)" position="middle" tickLabelAngle={-59} />
           <LineSeries
             data={this.props.savingsData}
-            style={{ stroke: "#19CDD7", strokeWidth: 3 }}
+            style={{ stroke: "#ACC12F", strokeWidth: 3 }}
             onNearestX={(value, { index }) =>
               this.setState({
                 savingsDataPoint: value,
@@ -37,14 +37,18 @@ export class Chart extends React.Component {
               <div style={savingsTipStyle}>
                 <div style={boxStyle}>Age: {savingsDataPoint.x}</div>
                 <div style={boxStyle}>
-                  Savings: ${savingsDataPoint.y.toLocaleString()}
+                  Savings: $
+                  {savingsDataPoint.y.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                  })}
                 </div>
               </div>
             </Hint>
           )}
           <LineSeries
             data={this.props.savingsInvestedData}
-            style={{ stroke: "#DA70BF", strokeWidth: 3 }}
+            style={{ stroke: "#086375", strokeWidth: 3 }}
             onNearestX={(value, { index }) =>
               this.setState({
                 investedDataPoint: value,
@@ -57,13 +61,17 @@ export class Chart extends React.Component {
               <div style={investedTipStyle}>
                 <div style={boxStyle}>Age: {investedDataPoint.x}</div>
                 <div style={boxStyle}>
-                  Savings: ${investedDataPoint.y.toLocaleString()}
+                  Savings: $
+                  {investedDataPoint.y.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                  })}
                 </div>
               </div>
             </Hint>
           )}
           <DiscreteColorLegend
-            colors={["#19CDD7", "#DA70BF"]}
+            colors={["#ACC12F", "#086375"]}
             items={["Savings Not Invested", "Savings Invested"]}
             orientation="vertical"
             style={{ position: "absolute", left: "50px", top: "10px" }}
@@ -76,14 +84,14 @@ export class Chart extends React.Component {
 
 const savingsTipStyle = {
   display: "flex",
-  color: "white",
-  background: "darkcyan"
+  color: "black",
+  background: "#ACC12F"
 };
 
 const investedTipStyle = {
   display: "flex",
   color: "white",
-  background: "darkred"
+  background: "#086375"
 };
 
-const boxStyle = { height: "40px", width: "80px" };
+const boxStyle = { height: "40px", width: "100px" };
