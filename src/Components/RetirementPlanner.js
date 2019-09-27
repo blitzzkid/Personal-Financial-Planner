@@ -92,9 +92,12 @@ export class RetirementPlanner extends React.Component {
     );
 
     this.setState({
-      retirementFund: retirementFund,
-      savingsPerMonthNotInvested: savingsPerMonthNotInvested,
-      savingsPerMonthInvested: savingsPerMonthInvested,
+      retirementFund: retirementFund.toLocaleString(undefined,
+        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
+      savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(undefined,
+        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
+      savingsPerMonthInvested: savingsPerMonthInvested.toLocaleString(undefined,
+        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
       savingsNotInvestedData: savingsData,
       savingsInvestedData: investmentsData
     });
@@ -117,7 +120,7 @@ export class RetirementPlanner extends React.Component {
               inputInterestRate={this.inputInterestRate}
               calculateRetirementFund={this.calculateRetirementFund}
               savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
-              monthlyContributionInvested={this.state.savingsPerMonthInvested}
+              savingsPerMonthInvested={this.state.savingsPerMonthInvested}
             />
           </div>
           <div className="chart">

@@ -7,9 +7,12 @@ export const RetirementPlannerForm = props => {
         <h2>Knowing more about you</h2>
         <p>
           <label htmlFor="current-age">How old are you now?</label>
-          <br/>
+          <br />
           <input
+            required
             type="number"
+            min="1"
+            max="130"
             id="current-age"
             aria-label="current-age"
             onChange={event => props.inputCurrentAge(event)}
@@ -22,7 +25,10 @@ export const RetirementPlannerForm = props => {
           </label>
           <br />
           <input
+            required
             type="number"
+            min="1"
+            max="130"
             id="retirement-age"
             aria-label="retirement-age"
             onChange={event => props.inputRetirementAge(event)}
@@ -34,7 +40,10 @@ export const RetirementPlannerForm = props => {
         </label>
         <br />
         <input
+          required
           type="number"
+          min="1"
+          max="130"
           id="passing-age"
           aria-label="passing-age"
           onChange={event => props.inputPassingAge(event)}
@@ -46,7 +55,10 @@ export const RetirementPlannerForm = props => {
           </label>
           <br />
           <input
+            required
             type="number"
+            min="1"
+            max="100000"
             id="retirement-income"
             aria-label="retirement-income"
             onChange={event => props.inputRetirementIncome(event)}
@@ -59,7 +71,10 @@ export const RetirementPlannerForm = props => {
           </label>
           <br />
           <input
+            required
             type="number"
+            min="0"
+            max="30"
             id="target-returns"
             aria-label="target-returns"
             onChange={event => props.inputInterestRate(event)}
@@ -74,20 +89,17 @@ export const RetirementPlannerForm = props => {
         <h2>Your retirement needs</h2>
         <div>
           <p>Retirement fund required (accounting for 2% inflation)</p>
-          <div data-testid={"retirement-fund"}>${props.retirementFund.toLocaleString(undefined,
- {'minimumFractionDigits':2,'maximumFractionDigits':2})}</div>
+          <div data-testid={"retirement-fund"}>${props.retirementFund}</div>
           <p>Savings per month required if you don't invest</p>
           <div data-testid={"contribution-saved"}>
-            ${props.savingsPerMonthNotInvested.toLocaleString(undefined,
- {'minimumFractionDigits':2,'maximumFractionDigits':2})}
+            ${props.savingsPerMonthNotInvested}
           </div>
           <p>
             Savings per month required if you meet your target investment
             returns
           </p>
           <div data-testid={"contribution-invested"}>
-            ${props.monthlyContributionInvested.toLocaleString(undefined,
- {'minimumFractionDigits':2,'maximumFractionDigits':2})}
+            ${props.savingsPerMonthInvested}
           </div>
         </div>
       </div>

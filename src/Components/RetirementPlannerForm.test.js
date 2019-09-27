@@ -45,7 +45,7 @@ describe("The retirement calculator page", () => {
     });
     it("Shows the Plan for retirement button'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
-      expect(getByText("Calculate")).toBeInTheDocument();
+      expect(getByText("Plan for retirement")).toBeInTheDocument();
     });
     it("Shows the heading 'Your retirement needs'", () => {
       const { getByText } = render(<RetirementPlannerForm />);
@@ -149,12 +149,12 @@ describe("The retirement calculator page", () => {
         fireEvent.change(getByLabelText("target-returns"), {
           target: { value: "5" }
         });
-        fireEvent.click(getByText("Calculate"));
+        fireEvent.click(getByText("Plan for retirement"));
         rerender(
           <RetirementPlannerForm
             retirementFund={"434,727"}
             savingsPerMonthNotInvested={"1,208"}
-            monthlyContributionInvested={"545"}
+            savingsPerMonthInvested={"545"}
           />
         );
         expect(getByText("$434,727")).toBeInTheDocument();
