@@ -102,28 +102,31 @@ export class RetirementPlanner extends React.Component {
 
   render() {
     return (
-      <div className="retirement-planner">
-        <div className="savings-calculator">
-          <RetirementPlannerForm
-            retirementFund={this.state.retirementFund}
-            inputCurrentAge={this.inputCurrentAge}
-            inputPassingAge={this.inputPassingAge}
-            inputRetirementAge={this.inputRetirementAge}
-            inputRetirementIncome={this.inputRetirementIncome}
-            inputInterestRate={this.inputInterestRate}
-            calculateRetirementFund={this.calculateRetirementFund}
-            savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
-            monthlyContributionInvested={this.state.savingsPerMonthInvested}
-          />
-        </div>
-        <div className="chart">
-          <Chart
-            savingsData={this.state.savingsNotInvestedData}
-            savingsInvestedData={this.state.savingsInvestedData}
-          />
-        </div>
-        <div className="funds-table">
-          <FundsTable interestRate={this.state.interestRate} />
+      <div>
+        <div className="header"></div>
+        <div className="retirement-planner">
+          <div className="savings-calculator">
+            <RetirementPlannerForm
+              retirementFund={this.state.retirementFund}
+              inputCurrentAge={this.inputCurrentAge}
+              inputPassingAge={this.inputPassingAge}
+              inputRetirementAge={this.inputRetirementAge}
+              inputRetirementIncome={this.inputRetirementIncome}
+              inputInterestRate={this.inputInterestRate}
+              calculateRetirementFund={this.calculateRetirementFund}
+              savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
+              monthlyContributionInvested={this.state.savingsPerMonthInvested}
+            />
+          </div>
+          <div className="chart">
+            <Chart
+              savingsData={this.state.savingsNotInvestedData}
+              savingsInvestedData={this.state.savingsInvestedData}
+            />
+          </div>
+          <div className="funds-table">
+            <FundsTable interestRate={this.state.interestRate} />
+          </div>
         </div>
       </div>
     );

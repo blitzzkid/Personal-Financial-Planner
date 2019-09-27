@@ -1,3 +1,8 @@
+.header {
+  background-color: #072240;
+  height: 10%;
+}
+
 .retirement-planner {
   display: grid;
   grid-template-areas: "form chart" "table table";
@@ -37,4 +42,8 @@
 .funds-table {
   grid-area: table;
   border: 1px solid black;
+}
+
+button {
+  background-color: #2bb8e0;
 }
