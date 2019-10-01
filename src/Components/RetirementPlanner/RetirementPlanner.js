@@ -1,7 +1,7 @@
 import React from "react";
 import { RetirementPlannerForm } from "./RetirementPlannerForm";
-import { Chart } from "./Chart";
-import { FundsTable } from "../Common/FundsTable";
+import { Chart } from "../Chart";
+import { FundsTable } from "../../Common/FundsTable";
 import "./RetirementPlanner.css";
 import {
   lengthOfWorkingLife,

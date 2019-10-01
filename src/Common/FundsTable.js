@@ -1,6 +1,6 @@
 import React from "react";
 import { FundsData } from "./FundsData";
-import '../Components/RetirementPlanner.css'
+import "../Components/RetirementPlanner/RetirementPlanner.css";
 
 export const FundsTable = props => {
   return (
