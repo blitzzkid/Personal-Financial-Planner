@@ -19,7 +19,7 @@ export class FundsData extends React.Component {
       return res;
     };
 
-    const api = `https://api.worldtradingdata.com/api/v1/mutualfund?symbol=AAAAX,AAADX,AAAGX&api_token=${process.env.REACT_APP_TOKEN}`;
+    const api = `https://api.worldtradingdata.com/api/v1/mutualfund?symbol=AAAAX,AAADX,AAAGX,UICGX,VSPVX&api_token=${process.env.REACT_APP_TOKEN}`;
 
     fetch(api)
       .then(checkResponse)
@@ -43,7 +43,7 @@ export class FundsData extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <FundsList list={items} interestRate={this.props.interestRate}/>
+          <FundsList list={items} interestRate={this.props.interestRate} />
         </React.Fragment>
       );
     }
@@ -61,7 +61,7 @@ export class FundsData extends React.Component {
 export const FundsList = props => {
   return (
     <React.Fragment>
-      <TableBodyRow items={props.list} interestRate={props.interestRate}/>
+      <TableBodyRow items={props.list} interestRate={props.interestRate} />
     </React.Fragment>
   );
 };
