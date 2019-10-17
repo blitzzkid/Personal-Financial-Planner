@@ -2,6 +2,7 @@ import React from "react";
 import { RetirementPlannerForm } from "./RetirementPlannerForm";
 import { Chart } from "../Chart";
 import { FundsTable } from "../../Common/FundsTable";
+import {Login} from "../../Common/Users/Login"
 import "./RetirementPlanner.css";
 import {
   lengthOfWorkingLife,
@@ -133,6 +134,7 @@ export class RetirementPlanner extends React.Component {
             <FundsTable interestRate={this.state.interestRate} />
           </div>
         </div>
+        <Login/>
       </div>
     );
   }
