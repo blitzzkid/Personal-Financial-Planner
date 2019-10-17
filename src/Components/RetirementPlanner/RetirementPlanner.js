@@ -2,7 +2,6 @@ import React from "react";
 import { RetirementPlannerForm } from "./RetirementPlannerForm";
 import { Chart } from "../Chart";
 import { FundsTable } from "../../Common/FundsTable";
-import {Login} from "../../Common/Users/Login"
 import "./RetirementPlanner.css";
 import {
   lengthOfWorkingLife,
@@ -14,6 +13,8 @@ import {
   generateSavingsNotInvestedData,
   generateSavingsInvestedData
 } from "./SavingsCalculations";
+import { Login } from "../../Common/Users/Login";
+import { Signup } from "../../Common/Users/Signup";
 
 export class RetirementPlanner extends React.Component {
   constructor() {
@@ -93,12 +94,18 @@ export class RetirementPlanner extends React.Component {
     );
 
     this.setState({
-      retirementFund: retirementFund.toLocaleString(undefined,
-        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
-      savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(undefined,
-        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
-      savingsPerMonthInvested: savingsPerMonthInvested.toLocaleString(undefined,
-        {'minimumFractionDigits':2,'maximumFractionDigits':2}),
+      retirementFund: retirementFund.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }),
+      savingsPerMonthNotInvested: savingsPerMonthNotInvested.toLocaleString(
+        undefined,
+        { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+      ),
+      savingsPerMonthInvested: savingsPerMonthInvested.toLocaleString(
+        undefined,
+        { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+      ),
       savingsNotInvestedData: savingsData,
       savingsInvestedData: investmentsData
     });
@@ -134,7 +141,8 @@ export class RetirementPlanner extends React.Component {
             <FundsTable interestRate={this.state.interestRate} />
           </div>
         </div>
-        <Login/>
+        <Login />
+        <Signup />
       </div>
     );
   }
