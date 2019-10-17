@@ -15,6 +15,7 @@ import {
 } from "./SavingsCalculations";
 import { Login } from "../../Common/Users/Login";
 import { Signup } from "../../Common/Users/Signup";
+import { UserProfile } from "../../Common/Users/UserProfile";
 
 export class RetirementPlanner extends React.Component {
   constructor() {
@@ -143,6 +144,7 @@ export class RetirementPlanner extends React.Component {
         </div>
         <Login />
         <Signup />
+        <UserProfile />
       </div>
     );
   }
