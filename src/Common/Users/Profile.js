@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export class UserProfile extends React.Component {
+export class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -10,24 +10,36 @@ export class UserProfile extends React.Component {
       passingAge: 0,
       retirementIncome: 0,
       interestRate: 0,
-      isUpdated: false
+      isUpdated: false,
+      isDeleted: false
     };
   }
-  inputBirthYear = event => {
-    this.setState({ birthYear: event.target.value });
+  componentDidMount() {
+    const username = "user125";
+    const url = `http://localhost:3000/profiles/${username}`;
+    axios
+      .get(url, { withCredentials: true })
+      .then(res => {
+        this.setState({
+          birthYear: res.data[0].birthYear,
+          retirementAge: res.data[0].retirementAge,
+          passingAge: res.data[0].passingAge,
+          retirementIncome: res.data[0].retirementIncome,
+          interestRate: res.data[0].interestRate
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+
+    this.setState({
+      [name]: value
+    });
   };
-  inputRetirementAge = event => {
-    this.setState({ retirementAge: event.target.value });
-  };
-  inputPassingAge = event => {
-    this.setState({ passingAge: event.target.value });
-  };
-  inputRetirementIncome = event => {
-    this.setState({ retirementIncome: event.target.value });
-  };
-  inputInterestRate = event => {
-    this.setState({ interestRate: event.target.value });
-  };
+
   updateProfile = () => {
     const username = "user125";
     const url = `http://localhost:3000/profiles/${username}`;
@@ -49,6 +61,16 @@ export class UserProfile extends React.Component {
       })
       .catch(err => console.error(err));
   };
+  deleteAccount = () => {
+    const username = "user129";
+    const url = `http://localhost:3000/users/delete/${username}`;
+    axios
+      .delete(url, { withCredentials: true })
+      .then(res => {
+        this.setState({ isDeleted: true });
+      })
+      .catch(err => console.error(err));
+  };
 
   render() {
     return (
@@ -65,7 +87,9 @@ export class UserProfile extends React.Component {
               max="130"
               id="current-age"
               aria-label="current-age"
-              onChange={this.inputBirthYear}
+              name="birthYear"
+              value={this.state.birthYear}
+              onChange={this.handleInputChange}
             />
             <span> years old</span>
           </p>
@@ -81,7 +105,9 @@ export class UserProfile extends React.Component {
               max="130"
               id="retirement-age"
               aria-label="retirement-age"
-              onChange={this.inputRetirementAge}
+              name="retirementAge"
+              value={this.state.retirementAge}
+              onChange={this.handleInputChange}
             />
             <span> years old</span>
           </p>
@@ -96,7 +122,9 @@ export class UserProfile extends React.Component {
             max="130"
             id="passing-age"
             aria-label="passing-age"
-            onChange={this.inputPassingAge}
+            name="passingAge"
+            value={this.state.passingAge}
+            onChange={this.handleInputChange}
           />
           <span> years old</span>
           <p>
@@ -111,7 +139,9 @@ export class UserProfile extends React.Component {
               max="100000"
               id="retirement-income"
               aria-label="retirement-income"
-              onChange={this.inputRetirementIncome}
+              name="retirementIncome"
+              value={this.state.retirementIncome}
+              onChange={this.handleInputChange}
             />
             <span> ($ in today's value)</span>
           </p>
@@ -127,14 +157,21 @@ export class UserProfile extends React.Component {
               max="30"
               id="target-returns"
               aria-label="target-returns"
-              onChange={this.inputInterestRate}
+              name="interestRate"
+              value={this.state.interestRate}
+              onChange={this.handleInputChange}
             />
             <span> % </span>
           </p>
           <button onClick={this.updateProfile}>Save</button>
+          <button onClick={this.deleteAccount}>Delete Account</button>
           <p>
-            Your update is{" "}
-            {this.state.isUpdated ? "successful" : "unsuccessful"}
+            Your update is
+            {this.state.isUpdated ? " successful" : " unsuccessful"}
+          </p>
+          <p>
+            Your account is{" "}
+            {this.state.isDeleted ? " deleted" : " still in use"}
           </p>
         </div>
       </div>

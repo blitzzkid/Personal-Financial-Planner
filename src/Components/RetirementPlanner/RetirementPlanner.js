@@ -15,7 +15,7 @@ import {
 } from "./SavingsCalculations";
 import { Login } from "../../Common/Users/Login";
 import { Signup } from "../../Common/Users/Signup";
-import { UserProfile } from "../../Common/Users/UserProfile";
+import { Profile } from "../../Common/Users/Profile";
 
 export class RetirementPlanner extends React.Component {
   constructor() {
@@ -25,9 +25,9 @@ export class RetirementPlanner extends React.Component {
       retirementAge: 0,
       passingAge: 0,
       retirementIncome: 0,
+      interestRate: 0.05,
       retirementFund: 0,
       inflationRate: 0.02,
-      interestRate: 0.05,
       savingsNotInvestedData: [],
       savingsInvestedData: [],
       savingsPerMonthNotInvested: 0,
@@ -144,7 +144,7 @@ export class RetirementPlanner extends React.Component {
         </div>
         <Login />
         <Signup />
-        <UserProfile />
+        <Profile />
       </div>
     );
   }
