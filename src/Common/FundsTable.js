@@ -35,7 +35,7 @@ export const TableHeader = () => {
 };
 
 export const TableBodyRow = props => {
-  const interestRate = props.interestRate * 100;
+  const interestRate = props.interestRate;
   return (
     <React.Fragment>
       {props.items

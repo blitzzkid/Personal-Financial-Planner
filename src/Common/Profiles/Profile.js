@@ -29,7 +29,13 @@ export class Profile extends React.Component {
   render() {
     return (
       <div>
-        <RetirementPlanner />
+        <RetirementPlanner
+          birthYear={this.state.birthYear}
+          retirementAge={this.state.retirementAge}
+          passingAge={this.state.passingAge}
+          retirementIncome={this.state.retirementIncome}
+          interestRate={this.state.interestRate}
+        />
         <ProfilePage
           username={this.state.username}
           birthYear={this.state.birthYear}

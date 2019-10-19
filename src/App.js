@@ -7,7 +7,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: "user126"
+      username: "user123"
     };
   }
   render() {

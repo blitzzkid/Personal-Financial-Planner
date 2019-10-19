@@ -1,5 +1,5 @@
 import React from "react";
-import { RetirementPlannerForm } from "./RetirementPlannerForm";
+import { RetirementNumbers } from "./RetirementNumbers";
 import { Chart } from "../Chart";
 import { FundsTable } from "../../Common/FundsTable";
 import "./RetirementPlanner.css";
@@ -15,14 +15,9 @@ import {
 } from "./SavingsCalculations";
 
 export class RetirementPlanner extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      currentAge: 0,
-      retirementAge: 0,
-      passingAge: 0,
-      retirementIncome: 0,
-      interestRate: 0.05,
       retirementFund: 0,
       inflationRate: 0.02,
       savingsNotInvestedData: [],
@@ -31,30 +26,14 @@ export class RetirementPlanner extends React.Component {
       savingsPerMonthInvested: 0
     };
   }
-  inputCurrentAge = event => {
-    this.setState({ currentAge: event.target.value });
-  };
-  inputRetirementAge = event => {
-    this.setState({ retirementAge: event.target.value });
-  };
-  inputPassingAge = event => {
-    this.setState({ passingAge: event.target.value });
-  };
-  inputRetirementIncome = event => {
-    this.setState({ retirementIncome: event.target.value });
-  };
-  inputInterestRate = event => {
-    this.setState({ interestRate: event.target.value / 100 });
-  };
-  calculateRetirementFund = () => {
-    const {
-      currentAge,
-      retirementAge,
-      passingAge,
-      retirementIncome,
-      inflationRate,
-      interestRate
-    } = this.state;
+
+  calculateNumbers = () => {
+    const currentAge = this.props.birthYear;
+    const retirementAge = this.props.retirementAge;
+    const passingAge = this.props.passingAge;
+    const retirementIncome = this.props.retirementIncome;
+    const interestRate = this.props.interestRate / 100;
+    const inflationRate = this.state.inflationRate;
 
     const workingLife = lengthOfWorkingLife(currentAge, retirementAge);
     const retirementFund = calculateRetirementFund(
@@ -117,17 +96,18 @@ export class RetirementPlanner extends React.Component {
         </div>
         <div className="retirement-planner">
           <div className="questionnaire-and-numbers">
-            <RetirementPlannerForm
+            <RetirementNumbers
               retirementFund={this.state.retirementFund}
-              inputCurrentAge={this.inputCurrentAge}
-              inputPassingAge={this.inputPassingAge}
-              inputRetirementAge={this.inputRetirementAge}
-              inputRetirementIncome={this.inputRetirementIncome}
-              inputInterestRate={this.inputInterestRate}
               calculateRetirementFund={this.calculateRetirementFund}
               savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
               savingsPerMonthInvested={this.state.savingsPerMonthInvested}
             />
+            <button onClick={this.calculateNumbers}>Calculate</button>
+            <p>{this.props.birthYear}</p>
+            <p>{this.props.retirementAge}</p>
+            <p>{this.props.passingAge}</p>
+            <p>{this.props.retirementIncome}</p>
+            <p>{this.props.interestRate}</p>
           </div>
           <div className="chart">
             <Chart
@@ -136,7 +116,7 @@ export class RetirementPlanner extends React.Component {
             />
           </div>
           <div className="funds-table">
-            <FundsTable interestRate={this.state.interestRate} />
+            <FundsTable interestRate={this.props.interestRate} />
           </div>
         </div>
       </div>

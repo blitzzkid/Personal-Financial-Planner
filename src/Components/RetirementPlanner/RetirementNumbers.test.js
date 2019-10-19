@@ -1,36 +1,36 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { RetirementPlannerForm } from "./RetirementPlannerForm";
+import { RetirementNumbers } from "./RetirementNumbers";
 
 describe("The retirement calculator page", () => {
   describe("It renders the headings, questions and statements correctly", () => {
     it("Shows the heading 'Knowing more about you'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(getByText("Knowing more about you")).toBeInTheDocument();
     });
     it("Shows the question 'How old are you now?'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(getByText("How old are you now?")).toBeInTheDocument();
     });
     it("Shows the input box for 'How old are you now?'", () => {
-      const { getByLabelText } = render(<RetirementPlannerForm />);
+      const { getByLabelText } = render(<RetirementNumbers />);
       expect(getByLabelText("current-age")).toBeInTheDocument();
     });
     it("Shows the question 'At what age do you plan to retire?'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText("At what age do you plan to retire?")
       ).toBeInTheDocument();
     });
     it("Shows the question 'How old do you expect to live until?'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText("How old do you expect to live until?")
       ).toBeInTheDocument();
     });
     it("Shows the question 'How much money would you like to have per month during retirement?'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText(
           "How much money would you like to have per month during retirement?"
@@ -38,33 +38,33 @@ describe("The retirement calculator page", () => {
       ).toBeInTheDocument();
     });
     it("Shows the question 'What is your targeted annual returns on investment?'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText("What is your targeted annual returns on investment?")
       ).toBeInTheDocument();
     });
     it("Shows the Plan for retirement button'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(getByText("Plan for retirement")).toBeInTheDocument();
     });
     it("Shows the heading 'Your retirement needs'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(getByText("Your retirement needs")).toBeInTheDocument();
     });
     it("Shows the statement 'Retirement fund required (accounting for 2% inflation)'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText("Retirement fund required (accounting for 2% inflation)")
       ).toBeInTheDocument();
     });
     it("Shows the statement 'Savings per month required if you don't invest'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText("Savings per month required if you don't invest")
       ).toBeInTheDocument();
     });
     it("Shows the statement 'Savings per month required if you meet your target investment returns'", () => {
-      const { getByText } = render(<RetirementPlannerForm />);
+      const { getByText } = render(<RetirementNumbers />);
       expect(
         getByText(
           "Savings per month required if you meet your target investment returns"
@@ -76,7 +76,7 @@ describe("The retirement calculator page", () => {
     const inputCurrentAge = jest.fn();
     it("It should set the input keyed in by the user", () => {
       const { getByLabelText } = render(
-        <RetirementPlannerForm inputCurrentAge={inputCurrentAge} />
+        <RetirementNumbers inputCurrentAge={inputCurrentAge} />
       );
       fireEvent.change(getByLabelText("current-age"), {
         target: { value: "30" }
@@ -86,7 +86,7 @@ describe("The retirement calculator page", () => {
     const inputRetirementAge = jest.fn();
     it("It should set the input keyed in by the user", () => {
       const { getByLabelText } = render(
-        <RetirementPlannerForm inputRetirementAge={inputRetirementAge} />
+        <RetirementNumbers inputRetirementAge={inputRetirementAge} />
       );
       fireEvent.change(getByLabelText("retirement-age"), {
         target: { value: "60" }
@@ -96,7 +96,7 @@ describe("The retirement calculator page", () => {
     const inputPassingAge = jest.fn();
     it("It should set the input keyed in by the user", () => {
       const { getByLabelText } = render(
-        <RetirementPlannerForm inputPassingAge={inputPassingAge} />
+        <RetirementNumbers inputPassingAge={inputPassingAge} />
       );
       fireEvent.change(getByLabelText("passing-age"), {
         target: { value: "80" }
@@ -106,7 +106,7 @@ describe("The retirement calculator page", () => {
     const inputRetirementIncome = jest.fn();
     it("It should set the input keyed in by the user", () => {
       const { getByLabelText } = render(
-        <RetirementPlannerForm inputRetirementIncome={inputRetirementIncome} />
+        <RetirementNumbers inputRetirementIncome={inputRetirementIncome} />
       );
       fireEvent.change(getByLabelText("retirement-income"), {
         target: { value: "1000" }
@@ -116,7 +116,7 @@ describe("The retirement calculator page", () => {
     const inputInterestRate = jest.fn();
     it("It should set the input keyed in by the user", () => {
       const { getByLabelText } = render(
-        <RetirementPlannerForm inputInterestRate={inputInterestRate} />
+        <RetirementNumbers inputInterestRate={inputInterestRate} />
       );
       fireEvent.change(getByLabelText("target-returns"), {
         target: { value: "5" }
@@ -126,7 +126,7 @@ describe("The retirement calculator page", () => {
     describe("It takes in the input keyed in by the user correctly", () => {
       it("Uses all positive whole numbers", () => {
         const { getByText, getByLabelText, rerender } = render(
-          <RetirementPlannerForm
+          <RetirementNumbers
             inputCurrentAge={inputCurrentAge}
             inputRetirementAge={inputRetirementAge}
             inputPassingAge={inputPassingAge}
@@ -151,7 +151,7 @@ describe("The retirement calculator page", () => {
         });
         fireEvent.click(getByText("Plan for retirement"));
         rerender(
-          <RetirementPlannerForm
+          <RetirementNumbers
             retirementFund={"434,727"}
             savingsPerMonthNotInvested={"1,208"}
             savingsPerMonthInvested={"545"}
