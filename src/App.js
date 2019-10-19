@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import { RetirementPlanner } from "./Components/RetirementPlanner/RetirementPlanner";
+import { Profile } from "./Common/Profiles/Profile";
+import { Users } from "./Common/Users/Users";
 
 export default function App() {
   return (
-      <div>
-        <RetirementPlanner/>
-      </div>
+    <div>
+      <Profile />
+      <Users />
+    </div>
   );
 }

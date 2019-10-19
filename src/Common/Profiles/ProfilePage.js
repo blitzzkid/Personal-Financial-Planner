@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export class Profile extends React.Component {
+export class ProfilePage extends React.Component {
   constructor() {
     super();
     this.state = {

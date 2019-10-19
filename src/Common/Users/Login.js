@@ -10,12 +10,13 @@ export class Login extends React.Component {
     };
   }
 
-  inputUsername = event => {
-    this.setState({ username: event.target.value });
-  };
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
 
-  inputPassword = event => {
-    this.setState({ password: event.target.value });
+    this.setState({
+      [name]: value
+    });
   };
 
   loginHandler = () => {
@@ -58,16 +59,18 @@ export class Login extends React.Component {
             Username:
             <input
               type="text"
+              name="username"
               value={this.state.username}
-              onChange={this.inputUsername}
+              onChange={this.handleInputChange}
             ></input>
           </label>
           <label>
             Password:
             <input
               type="password"
+              name="password"
               value={this.state.password}
-              onChange={this.inputPassword}
+              onChange={this.handleInputChange}
             ></input>
           </label>
           <button onClick={this.loginHandler}>Login</button>

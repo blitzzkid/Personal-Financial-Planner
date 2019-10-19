@@ -13,9 +13,6 @@ import {
   generateSavingsNotInvestedData,
   generateSavingsInvestedData
 } from "./SavingsCalculations";
-import { Login } from "../../Common/Users/Login";
-import { Signup } from "../../Common/Users/Signup";
-import { Profile } from "../../Common/Users/Profile";
 
 export class RetirementPlanner extends React.Component {
   constructor() {
@@ -142,9 +139,6 @@ export class RetirementPlanner extends React.Component {
             <FundsTable interestRate={this.state.interestRate} />
           </div>
         </div>
-        <Login />
-        <Signup />
-        <Profile />
       </div>
     );
   }
