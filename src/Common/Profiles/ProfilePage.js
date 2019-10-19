@@ -2,33 +2,17 @@ import React from "react";
 import axios from "axios";
 
 export class ProfilePage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      birthYear: 0,
-      retirementAge: 0,
-      passingAge: 0,
-      retirementIncome: 0,
-      interestRate: 0,
+      birthYear: this.props.birthYear,
+      retirementAge: this.props.retirementAge,
+      passingAge: this.props.passingAge,
+      retirementIncome: this.props.retirementIncome,
+      interestRate: this.props.interestRate,
       isUpdated: false,
       isDeleted: false
     };
-  }
-  componentDidMount() {
-    const username = "user125";
-    const url = `http://localhost:3000/profiles/${username}`;
-    axios
-      .get(url, { withCredentials: true })
-      .then(res => {
-        this.setState({
-          birthYear: res.data[0].birthYear,
-          retirementAge: res.data[0].retirementAge,
-          passingAge: res.data[0].passingAge,
-          retirementIncome: res.data[0].retirementIncome,
-          interestRate: res.data[0].interestRate
-        });
-      })
-      .catch(err => console.error(err));
   }
 
   handleInputChange = event => {
@@ -41,13 +25,12 @@ export class ProfilePage extends React.Component {
   };
 
   updateProfile = () => {
-    const username = "user125";
-    const url = `http://localhost:3000/profiles/${username}`;
+    const url = `http://localhost:3000/profiles/${this.props.username}`;
     axios
       .put(
         url,
         {
-          username: username,
+          username: this.props.username,
           birthYear: this.state.birthYear,
           retirementAge: this.state.retirementAge,
           passingAge: this.state.passingAge,
@@ -61,9 +44,18 @@ export class ProfilePage extends React.Component {
       })
       .catch(err => console.error(err));
   };
-  deleteAccount = () => {
-    const username = "user129";
-    const url = `http://localhost:3000/users/delete/${username}`;
+  deleteUserAccount = () => {
+    const url = `http://localhost:3000/users/delete/${this.props.username}`;
+    axios
+      .delete(url, { withCredentials: true })
+      .then(res => {
+        this.deleteUserProfile();
+        this.setState({ isDeleted: true });
+      })
+      .catch(err => console.error(err));
+  };
+  deleteUserProfile = () => {
+    const url = `http://localhost:3000/profiles/delete/${this.props.username}`;
     axios
       .delete(url, { withCredentials: true })
       .then(res => {
@@ -164,7 +156,7 @@ export class ProfilePage extends React.Component {
             <span> % </span>
           </p>
           <button onClick={this.updateProfile}>Save</button>
-          <button onClick={this.deleteAccount}>Delete Account</button>
+          <button onClick={this.deleteUserAccount}>Delete Account</button>
           <p>
             Your update is
             {this.state.isUpdated ? " successful" : " unsuccessful"}

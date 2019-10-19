@@ -75,7 +75,6 @@ export class Login extends React.Component {
           </label>
           <button onClick={this.loginHandler}>Login</button>
         </div>
-        {/* <button onClick={this.logoutHandler}>Logout</button> */}
         <p>You are logged {this.state.isLoggedIn ? "in" : "out"}</p>
       </div>
     );
