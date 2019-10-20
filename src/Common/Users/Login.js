@@ -5,7 +5,6 @@ export class Login extends React.Component {
     super();
     this.state = {
       isLoggedIn: false,
-      // username: "",
       password: ""
     };
   }
@@ -31,7 +30,6 @@ export class Login extends React.Component {
       )
       .then(res => {
         this.setState({ isLoggedIn: true });
-        // this.setState({ username: "" });
         this.setState({ password: "" });
       })
       .catch(err => {
@@ -44,7 +42,6 @@ export class Login extends React.Component {
     return (
       <div>
         <div className="login-form">
-          {this.props.username}
           <label>
             Username:
             <input

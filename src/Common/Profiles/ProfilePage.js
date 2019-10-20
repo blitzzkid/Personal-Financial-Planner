@@ -5,11 +5,6 @@ export class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // birthYear: this.props.birthYear,
-      // retirementAge: this.props.retirementAge,
-      // passingAge: this.props.passingAge,
-      // retirementIncome: this.props.retirementIncome,
-      // interestRate: this.props.interestRate,
       isUpdated: false,
       isDeleted: false
     };

@@ -44,7 +44,7 @@ export class RetirementPlanner extends React.Component {
   }
 
   calculateNumbers = () => {
-    const currentAge = this.state.birthYear;
+    const currentAge = 2019 - this.state.birthYear;
     const retirementAge = this.state.retirementAge;
     const passingAge = this.state.passingAge;
     const retirementIncome = this.state.retirementIncome;
