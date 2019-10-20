@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./Login.css";
 export class Login extends React.Component {
   constructor() {
     super();
@@ -40,28 +41,26 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="login-form">
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={this.props.username}
-              onChange={this.onUsernameChange}
-            ></input>
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.onPasswordChange}
-            ></input>
-          </label>
-          <button onClick={this.loginHandler}>Login</button>
-        </div>
+      <div className="login-form">
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={this.props.username}
+            onChange={this.onUsernameChange}
+          ></input>
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.onPasswordChange}
+          ></input>
+        </label>
+        <button onClick={this.loginHandler}>Login</button>
         <p>You are logged {this.state.isLoggedIn ? "in" : "out"}</p>
       </div>
     );

@@ -1,0 +1,18 @@
+.header {
+  background-color: #022b3a;
+  height: 10vh;
+  display: flex;
+}
+
+.header span {
+  padding-top: 1%;
+  padding-left: 2%;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+a:visited {
+  color: whitesmoke;
+  text-decoration: none;
+}

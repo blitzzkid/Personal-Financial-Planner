@@ -15,14 +15,14 @@
 
 .retirement-planner {
   display: grid;
-  grid-template-areas: "form form chart chart chart" "form form table table table";
+  grid-template-areas: "numbers numbers chart chart chart" "numbers numbers table table table";
   margin: 1% auto;
   width: 97%;
   grid-gap: 1%;
 }
 
 .questionnaire-and-numbers {
-  grid-area: form;
+  grid-area: numbers;
   font-size: 20px;
   line-height: 1.35em;
 }
@@ -39,11 +39,19 @@
 .retirement-numbers {
   font-size: 20px;
   line-height: 1.35em;
-  margin: 1em 0px;
   padding: 4%;
   border-radius: 10px;
   background-color: #022b3a;
   color: white;
+}
+
+.recommended-funds {
+  font-size: 20px;
+  line-height: 1.35em;
+  margin: 1em 0px;
+  padding: 4%;
+  border-radius: 10px;
+  background-color: #bfdbf7;
 }
 
 .retirement-numbers h2 {

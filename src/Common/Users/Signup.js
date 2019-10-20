@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./Login.css";
 
 export class Signup extends React.Component {
   constructor() {
@@ -64,7 +65,7 @@ export class Signup extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="signup">
         <h1>New User Signup</h1>
         <label>
           First Name:
@@ -74,14 +75,16 @@ export class Signup extends React.Component {
             onChange={this.handleInputChange}
           ></input>
         </label>
-        <label>
-          Last Name:
-          <input
-            type="text"
-            name="lastName"
-            onChange={this.handleInputChange}
-          ></input>
-        </label>
+        <div>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              name="lastName"
+              onChange={this.handleInputChange}
+            ></input>
+          </label>
+        </div>
         <label>
           Username:
           <input

@@ -117,6 +117,7 @@ export class RetirementPlanner extends React.Component {
               calculateRetirementFund={this.calculateRetirementFund}
               savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
               savingsPerMonthInvested={this.state.savingsPerMonthInvested}
+              interestRate={this.state.interestRate}
             />
             <button onClick={this.calculateNumbers}>Show</button>
           </div>

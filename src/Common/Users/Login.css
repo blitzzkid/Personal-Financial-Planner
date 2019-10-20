@@ -1,0 +1,21 @@
+.login-form {
+  font-size: 20px;
+  line-height: 1.35em;
+  padding: 4%;
+  border-radius: 20px;
+  background-color: #022b3a;
+  color: white;
+  width: 30%;
+  margin: 5% auto;
+}
+
+.signup {
+  font-size: 20px;
+  line-height: 1.35em;
+  padding: 4%;
+  border-radius: 20px;
+  background-color: #022b3a;
+  color: white;
+  width: 30%;
+  margin: 5% auto;
+}

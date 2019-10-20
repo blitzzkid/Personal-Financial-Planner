@@ -21,6 +21,14 @@ export const RetirementNumbers = props => {
           </div>
         </div>
       </div>
+      <div className="recommended-funds">
+        <h2>Recommended Funds</h2>
+        <p>
+          With a targeted returns of investment of {props.interestRate}%, the
+          table on the right is a list of recommended funds which 5 year
+          annualized returns exceed your target returns.
+        </p>
+      </div>
     </div>
   );
 };
