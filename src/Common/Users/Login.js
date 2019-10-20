@@ -5,17 +5,16 @@ export class Login extends React.Component {
     super();
     this.state = {
       isLoggedIn: false,
-      username: "",
+      // username: "",
       password: ""
     };
   }
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-
+  onUsernameChange = event => {
+    this.props.handleUsernameChange(event.target.value);
+  };
+  onPasswordChange = event => {
     this.setState({
-      [name]: value
+      password: event.target.value
     });
   };
 
@@ -25,14 +24,14 @@ export class Login extends React.Component {
       .post(
         url,
         {
-          username: this.state.username,
+          username: this.props.username,
           password: this.state.password
         },
         { withCredentials: true }
       )
       .then(res => {
         this.setState({ isLoggedIn: true });
-        this.setState({ username: "" });
+        // this.setState({ username: "" });
         this.setState({ password: "" });
       })
       .catch(err => {
@@ -41,27 +40,18 @@ export class Login extends React.Component {
       });
   };
 
-  logoutHandler = () => {
-    const url = "http://localhost:3000/users/logout";
-    axios
-      .post(url, {}, { withCredentials: true })
-      .then(res => {
-        this.setState({ isLoggedIn: false });
-      })
-      .catch(err => console.error(err));
-  };
-
   render() {
     return (
       <div>
         <div className="login-form">
+          {this.props.username}
           <label>
             Username:
             <input
               type="text"
               name="username"
-              value={this.state.username}
-              onChange={this.handleInputChange}
+              value={this.props.username}
+              onChange={this.onUsernameChange}
             ></input>
           </label>
           <label>
@@ -70,7 +60,7 @@ export class Login extends React.Component {
               type="password"
               name="password"
               value={this.state.password}
-              onChange={this.handleInputChange}
+              onChange={this.onPasswordChange}
             ></input>
           </label>
           <button onClick={this.loginHandler}>Login</button>

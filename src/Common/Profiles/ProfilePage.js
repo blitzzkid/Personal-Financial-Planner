@@ -5,14 +5,29 @@ export class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      birthYear: this.props.birthYear,
-      retirementAge: this.props.retirementAge,
-      passingAge: this.props.passingAge,
-      retirementIncome: this.props.retirementIncome,
-      interestRate: this.props.interestRate,
+      // birthYear: this.props.birthYear,
+      // retirementAge: this.props.retirementAge,
+      // passingAge: this.props.passingAge,
+      // retirementIncome: this.props.retirementIncome,
+      // interestRate: this.props.interestRate,
       isUpdated: false,
       isDeleted: false
     };
+  }
+  componentDidMount() {
+    const url = `http://localhost:3000/profiles/${this.props.username}`;
+    axios
+      .get(url, { withCredentials: true })
+      .then(res => {
+        this.setState({
+          birthYear: res.data[0].birthYear,
+          retirementAge: res.data[0].retirementAge,
+          passingAge: res.data[0].passingAge,
+          retirementIncome: res.data[0].retirementIncome,
+          interestRate: res.data[0].interestRate
+        });
+      })
+      .catch(err => console.error(err));
   }
 
   handleInputChange = event => {

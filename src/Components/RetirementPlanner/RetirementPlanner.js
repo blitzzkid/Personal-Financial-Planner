@@ -13,6 +13,7 @@ import {
   generateSavingsNotInvestedData,
   generateSavingsInvestedData
 } from "./SavingsCalculations";
+import axios from "axios";
 
 export class RetirementPlanner extends React.Component {
   constructor(props) {
@@ -26,13 +27,28 @@ export class RetirementPlanner extends React.Component {
       savingsPerMonthInvested: 0
     };
   }
+  componentDidMount() {
+    const url = `http://localhost:3000/profiles/${this.props.username}`;
+    axios
+      .get(url, { withCredentials: true })
+      .then(res => {
+        this.setState({
+          birthYear: res.data[0].birthYear,
+          retirementAge: res.data[0].retirementAge,
+          passingAge: res.data[0].passingAge,
+          retirementIncome: res.data[0].retirementIncome,
+          interestRate: res.data[0].interestRate
+        });
+      })
+      .catch(err => console.error(err));
+  }
 
   calculateNumbers = () => {
-    const currentAge = this.props.birthYear;
-    const retirementAge = this.props.retirementAge;
-    const passingAge = this.props.passingAge;
-    const retirementIncome = this.props.retirementIncome;
-    const interestRate = this.props.interestRate / 100;
+    const currentAge = this.state.birthYear;
+    const retirementAge = this.state.retirementAge;
+    const passingAge = this.state.passingAge;
+    const retirementIncome = this.state.retirementIncome;
+    const interestRate = this.state.interestRate / 100;
     const inflationRate = this.state.inflationRate;
 
     const workingLife = lengthOfWorkingLife(currentAge, retirementAge);
@@ -102,12 +118,7 @@ export class RetirementPlanner extends React.Component {
               savingsPerMonthNotInvested={this.state.savingsPerMonthNotInvested}
               savingsPerMonthInvested={this.state.savingsPerMonthInvested}
             />
-            <button onClick={this.calculateNumbers}>Calculate</button>
-            <p>{this.props.birthYear}</p>
-            <p>{this.props.retirementAge}</p>
-            <p>{this.props.passingAge}</p>
-            <p>{this.props.retirementIncome}</p>
-            <p>{this.props.interestRate}</p>
+            <button onClick={this.calculateNumbers}>Show</button>
           </div>
           <div className="chart">
             <Chart
@@ -116,7 +127,7 @@ export class RetirementPlanner extends React.Component {
             />
           </div>
           <div className="funds-table">
-            <FundsTable interestRate={this.props.interestRate} />
+            <FundsTable interestRate={this.state.interestRate} />
           </div>
         </div>
       </div>

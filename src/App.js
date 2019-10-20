@@ -1,21 +1,60 @@
 import React from "react";
 import "./App.css";
-import { Profile } from "./Common/Profiles/Profile";
-import { User } from "./Common/Users/User";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import { Login } from "../src/Common/Users/Login";
+import { Signup } from "../src/Common/Users/Signup";
+import { Logout } from "../src/Common/Users/Logout";
+// import { ProfilePage } from "./Common/Profiles/ProfilePage";
+import { RetirementPlanner } from "./Components/RetirementPlanner/RetirementPlanner";
+import {Header} from './Common/Header'
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: "user123"
+      username: ""
     };
   }
+  handleUsernameChange = username => {
+    this.setState({
+      username
+    });
+  };
+
   render() {
     return (
-      <div>
-        <Profile username={this.state.username} />
-        <User username={this.state.username} />
-      </div>
+      <Router>
+        <div>
+          <nav>
+            <Header />
+          </nav>
+          <div>
+            <Switch>
+              <Route exact path="/">
+                <Login
+                  username={this.state.username}
+                  handleUsernameChange={this.handleUsernameChange}
+                />
+              </Route>
+              <Route exact path="/signup">
+                <Signup />
+              </Route>
+              <Route exact path="/retirement">
+                <RetirementPlanner username={this.state.username} />
+              </Route>
+              <Route exact path="/logout">
+                <Logout handleUsernameChange={this.handleUsernameChange} />
+              </Route>
+              <Redirect to="/" />
+            </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }

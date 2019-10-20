@@ -15,6 +15,7 @@ export class Logout extends React.Component {
       .post(url, {}, { withCredentials: true })
       .then(res => {
         this.setState({ isLoggedOut: true });
+        this.props.handleUsernameChange()
       })
       .catch(err => console.error(err));
   };
