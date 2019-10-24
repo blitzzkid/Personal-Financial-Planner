@@ -19,7 +19,7 @@ export class Login extends React.Component {
   };
 
   loginHandler = () => {
-    const url = "http://financial-retirement-planner.herokuapp.com/users/login";
+    const url = "https://financial-retirement-planner.herokuapp.com/users/login";
     axios
       .post(
         url,

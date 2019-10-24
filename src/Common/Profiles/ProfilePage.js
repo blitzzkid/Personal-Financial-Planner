@@ -11,7 +11,7 @@ export class ProfilePage extends React.Component {
   }
   componentDidMount() {
     if (this.props.username !== "") {
-      const url = `http://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
+      const url = `https://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
       axios
         .get(url, { withCredentials: true })
         .then(res => {
@@ -37,7 +37,7 @@ export class ProfilePage extends React.Component {
   };
 
   updateProfile = () => {
-    const url = `http://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
+    const url = `https://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
     axios
       .put(
         url,
@@ -57,7 +57,7 @@ export class ProfilePage extends React.Component {
       .catch(err => console.error(err));
   };
   deleteUserAccount = () => {
-    const url = "http://financial-retirement-planner.herokuapp.com/users/";
+    const url = "https://financial-retirement-planner.herokuapp.com/users/";
     axios
       .delete(url, { withCredentials: true })
       .then(res => {
@@ -67,7 +67,7 @@ export class ProfilePage extends React.Component {
       .catch(err => console.error(err));
   };
   deleteUserProfile = () => {
-    const url = "http://financial-retirement-planner.herokuapp.com/profiles/";
+    const url = "https://financial-retirement-planner.herokuapp.com/profiles/";
     axios
       .delete(url, { withCredentials: true })
       .then(res => {

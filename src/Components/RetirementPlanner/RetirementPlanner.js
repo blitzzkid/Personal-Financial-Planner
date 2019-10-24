@@ -28,7 +28,7 @@ export class RetirementPlanner extends React.Component {
     };
   }
   componentDidMount() {
-    const url = `http://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
+    const url = `https://financial-retirement-planner.herokuapp.com/profiles/${this.props.username}`;
     axios
       .get(url, { withCredentials: true })
       .then(res => {

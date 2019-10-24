@@ -10,7 +10,7 @@ export class Logout extends React.Component {
   }
 
   logoutHandler = () => {
-    const url = "http://financial-retirement-planner.herokuapp.com/users/logout";
+    const url = "https://financial-retirement-planner.herokuapp.com/users/logout";
     axios
       .post(url, {}, { withCredentials: true })
       .then(res => {
