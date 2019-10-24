@@ -24,7 +24,7 @@ export class Signup extends React.Component {
   };
 
   signupHandler = () => {
-    const url = "http://localhost:3000/users/new";
+    const url = "http://financial-retirement-planner.herokuapp.com/users/new";
     axios
       .post(
         url,
@@ -43,7 +43,7 @@ export class Signup extends React.Component {
       .catch(err => console.error(err));
   };
   createUserProfile = () => {
-    const url = "http://localhost:3000/profiles/new";
+    const url = "http://financial-retirement-planner.herokuapp.com/profiles/new";
     axios
       .post(
         url,
