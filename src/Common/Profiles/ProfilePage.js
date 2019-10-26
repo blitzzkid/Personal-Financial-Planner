@@ -72,6 +72,7 @@ export class ProfilePage extends React.Component {
       .delete(url, { withCredentials: true })
       .then(res => {
         this.setState({ isDeleted: true });
+        this.props.handleUserLogin(false);
       })
       .catch(err => console.error(err));
   };
@@ -169,14 +170,8 @@ export class ProfilePage extends React.Component {
           </p>
           <button onClick={this.updateProfile}>Save</button>
           <button onClick={this.deleteUserAccount}>Delete Account</button>
-          <p>
-            Your update is
-            {this.state.isUpdated ? " successful" : " unsuccessful"}
-          </p>
-          <p>
-            Your account is{" "}
-            {this.state.isDeleted ? " deleted" : " still in use"}
-          </p>
+          <p>{this.state.isUpdated ? "Your update has been successful" : ""}</p>
+          <p>{this.state.isDeleted ? "Your account has been deleted" : ""}</p>
         </div>
       </div>
     );

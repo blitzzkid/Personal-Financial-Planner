@@ -76,7 +76,10 @@ export default class App extends React.Component {
                   <RetirementPlanner username={this.state.username} />
                 </Route>
                 <Route exact path="/profile">
-                  <ProfilePage username={this.state.username} />
+                  <ProfilePage
+                    username={this.state.username}
+                    handleUserLogin={this.handleUserLogin}
+                  />
                 </Route>
                 <Route exact path="/logout">
                   <Logout
