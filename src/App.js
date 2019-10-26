@@ -12,12 +12,14 @@ import { Logout } from "../src/Common/Users/Logout";
 import { ProfilePage } from "./Common/Profiles/ProfilePage";
 import { RetirementPlanner } from "./Components/RetirementPlanner/RetirementPlanner";
 import { Header } from "./Common/Header";
+import { LoginHeader } from "./Common/Header";
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: ""
+      username: "",
+      isLoggedIn: false
     };
   }
   handleUsernameChange = username => {
@@ -25,42 +27,70 @@ export default class App extends React.Component {
       username
     });
   };
+  handleUserLogin = isLoggedIn => {
+    this.setState({
+      isLoggedIn
+    });
+  };
 
   render() {
-    return (
-      <Router>
-        <div>
-          <nav>
-            <Header />
-          </nav>
+    if (!this.state.isLoggedIn) {
+      return (
+        <Router>
           <div>
-            <Switch>
-              <Route exact path="/">
-                <Login
-                  username={this.state.username}
-                  handleUsernameChange={this.handleUsernameChange}
-                />
-              </Route>
-              <Route exact path="/signup">
-                <Signup
-                  username={this.state.username}
-                  handleUsernameChange={this.handleUsernameChange}
-                />
-              </Route>
-              <Route exact path="/retirement">
-                <RetirementPlanner username={this.state.username} />
-              </Route>
-              <Route exact path="/profile">
-                <ProfilePage username={this.state.username} />
-              </Route>
-              <Route exact path="/logout">
-                <Logout handleUsernameChange={this.handleUsernameChange} />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
+            <nav>
+              <LoginHeader />
+            </nav>
+            <div>
+              <Switch>
+                <Route exact path="/">
+                  <Login
+                    username={this.state.username}
+                    handleUsernameChange={this.handleUsernameChange}
+                    isLoggedIn={this.state.isLoggedIn}
+                    handleUserLogin={this.handleUserLogin}
+                  />
+                </Route>
+                <Route exact path="/signup">
+                  <Signup
+                    username={this.state.username}
+                    handleUsernameChange={this.handleUsernameChange}
+                  />
+                </Route>
+                <Redirect to="/" />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
-    );
+        </Router>
+      );
+    } else {
+      return (
+        <Router>
+          <div>
+            <nav>
+              <Header />
+            </nav>
+            <div>
+              <Switch>
+                <Route exact path="/retirement">
+                  <RetirementPlanner username={this.state.username} />
+                </Route>
+                <Route exact path="/profile">
+                  <ProfilePage username={this.state.username} />
+                </Route>
+                <Route exact path="/logout">
+                  <Logout
+                    handleUsernameChange={this.handleUsernameChange}
+                    isLoggedIn={this.state.isLoggedIn}
+                    handleUserLogin={this.handleUserLogin}
+                  />
+                </Route>
+                <Redirect to="/retirement" />
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      );
+    }
   }
 }

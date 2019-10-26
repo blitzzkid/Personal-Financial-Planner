@@ -2,10 +2,9 @@ import React from "react";
 import axios from "axios";
 import "./Login.css";
 export class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isLoggedIn: false,
       password: ""
     };
   }
@@ -19,7 +18,8 @@ export class Login extends React.Component {
   };
 
   loginHandler = () => {
-    const url = "https://financial-retirement-planner.herokuapp.com/users/login";
+    const url =
+      "https://financial-retirement-planner.herokuapp.com/users/login";
     axios
       .post(
         url,
@@ -30,12 +30,12 @@ export class Login extends React.Component {
         { withCredentials: true }
       )
       .then(res => {
-        this.setState({ isLoggedIn: true });
+        this.props.handleUserLogin(true);
         this.setState({ password: "" });
       })
       .catch(err => {
         console.error(err);
-        this.setState({ isLoggedIn: false });
+        this.props.handleUserLogin(false);
       });
   };
 
@@ -61,7 +61,6 @@ export class Login extends React.Component {
           ></input>
         </label>
         <button onClick={this.loginHandler}>Login</button>
-        <p>You are logged {this.state.isLoggedIn ? "in" : "out"}</p>
       </div>
     );
   }

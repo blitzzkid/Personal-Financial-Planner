@@ -2,20 +2,14 @@ import React from "react";
 import axios from "axios";
 
 export class Logout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isLoggedOut: false
-    };
-  }
-
   logoutHandler = () => {
-    const url = "https://financial-retirement-planner.herokuapp.com/users/logout";
+    const url =
+      "https://financial-retirement-planner.herokuapp.com/users/logout";
     axios
       .post(url, {}, { withCredentials: true })
       .then(res => {
-        this.setState({ isLoggedOut: true });
-        this.props.handleUsernameChange()
+        this.props.handleUsernameChange();
+        this.props.handleUserLogin(false);
       })
       .catch(err => console.error(err));
   };
@@ -24,7 +18,6 @@ export class Logout extends React.Component {
     return (
       <div>
         <button onClick={this.logoutHandler}>Logout</button>
-        <p>You are logged {this.state.isLoggedOut ? "out" : "in"}</p>
       </div>
     );
   }

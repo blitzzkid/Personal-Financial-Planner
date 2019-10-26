@@ -6,12 +6,6 @@ export const Header = () => {
   return (
     <div className="header">
       <span>
-        <Link to="/">Login</Link>
-      </span>
-      <span>
-        <Link to="/signup">Signup</Link>
-      </span>
-      <span>
         <Link to="/retirement">Retirement</Link>
       </span>
       <span>
@@ -23,3 +17,16 @@ export const Header = () => {
     </div>
   );
 };
+
+export const LoginHeader = () => {
+  return (
+    <div className="header">
+      <span>
+        <Link to="/">Login</Link>
+      </span>
+      <span>
+        <Link to="/signup">Signup</Link>
+      </span>
+    </div>
+  );
+}
