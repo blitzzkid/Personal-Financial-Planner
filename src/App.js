@@ -42,7 +42,10 @@ export default class App extends React.Component {
                 />
               </Route>
               <Route exact path="/signup">
-                <Signup />
+                <Signup
+                  username={this.state.username}
+                  handleUsernameChange={this.handleUsernameChange}
+                />
               </Route>
               <Route exact path="/retirement">
                 <RetirementPlanner username={this.state.username} />

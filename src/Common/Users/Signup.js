@@ -3,17 +3,21 @@ import axios from "axios";
 import "./Login.css";
 
 export class Signup extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       firstName: "",
       lastName: "",
-      username: "",
       password: "",
       hasSignedUp: false,
+      isLoggedIn: false,
       profileCreated: false
     };
   }
+  onUsernameChange = event => {
+    this.props.handleUsernameChange(event.target.value);
+  };
+
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -31,7 +35,7 @@ export class Signup extends React.Component {
         {
           firstName: this.state.firstName,
           lastName: this.state.lastName,
-          username: this.state.username,
+          username: this.props.username,
           password: this.state.password
         },
         { withCredentials: true }
@@ -39,16 +43,18 @@ export class Signup extends React.Component {
       .then(res => {
         this.createUserProfile();
         this.setState({ hasSignedUp: true });
+        this.loginHandler();
       })
       .catch(err => console.error(err));
   };
   createUserProfile = () => {
-    const url = "https://financial-retirement-planner.herokuapp.com/profiles/new";
+    const url =
+      "https://financial-retirement-planner.herokuapp.com/profiles/new";
     axios
       .post(
         url,
         {
-          username: this.state.username,
+          username: this.props.username,
           birthYear: 0,
           retirementAge: 0,
           passingAge: 0,
@@ -61,6 +67,25 @@ export class Signup extends React.Component {
         this.setState({ profileCreated: true });
       })
       .catch(err => console.error(err));
+  };
+  loginHandler = () => {
+    const url =
+      "https://financial-retirement-planner.herokuapp.com/users/login";
+    axios
+      .post(
+        url,
+        {
+          username: this.props.username,
+          password: this.state.password
+        },
+        { withCredentials: true }
+      )
+      .then(res => {
+        this.setState({ isLoggedIn: true });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   render() {
@@ -89,8 +114,7 @@ export class Signup extends React.Component {
           Username:
           <input
             type="text"
-            name="username"
-            onChange={this.handleInputChange}
+            onChange={this.onUsernameChange}
           ></input>
         </label>
         <label>
@@ -109,6 +133,9 @@ export class Signup extends React.Component {
         <p>
           Your profile is{" "}
           {this.state.profileCreated ? "created" : "not created"}
+        </p>
+        <p>
+          You are {this.state.isLoggedIn ? "logged in" : "not yet logged in"}
         </p>
       </div>
     );
