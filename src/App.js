@@ -47,7 +47,6 @@ export default class App extends React.Component {
                   <Login
                     username={this.state.username}
                     handleUsernameChange={this.handleUsernameChange}
-                    isLoggedIn={this.state.isLoggedIn}
                     handleUserLogin={this.handleUserLogin}
                   />
                 </Route>
@@ -55,6 +54,7 @@ export default class App extends React.Component {
                   <Signup
                     username={this.state.username}
                     handleUsernameChange={this.handleUsernameChange}
+                    handleUserLogin={this.handleUserLogin}
                   />
                 </Route>
                 <Redirect to="/" />
@@ -81,7 +81,6 @@ export default class App extends React.Component {
                 <Route exact path="/logout">
                   <Logout
                     handleUsernameChange={this.handleUsernameChange}
-                    isLoggedIn={this.state.isLoggedIn}
                     handleUserLogin={this.handleUserLogin}
                   />
                 </Route>

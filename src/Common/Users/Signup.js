@@ -8,10 +8,7 @@ export class Signup extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      password: "",
-      hasSignedUp: false,
-      isLoggedIn: false,
-      profileCreated: false
+      password: ""
     };
   }
   onUsernameChange = event => {
@@ -42,7 +39,6 @@ export class Signup extends React.Component {
       )
       .then(res => {
         this.createUserProfile();
-        this.setState({ hasSignedUp: true });
         this.loginHandler();
       })
       .catch(err => console.error(err));
@@ -63,9 +59,6 @@ export class Signup extends React.Component {
         },
         { withCredentials: true }
       )
-      .then(res => {
-        this.setState({ profileCreated: true });
-      })
       .catch(err => console.error(err));
   };
   loginHandler = () => {
@@ -81,7 +74,7 @@ export class Signup extends React.Component {
         { withCredentials: true }
       )
       .then(res => {
-        this.setState({ isLoggedIn: true });
+        this.props.handleUserLogin(true);
       })
       .catch(err => {
         console.error(err);
@@ -112,10 +105,7 @@ export class Signup extends React.Component {
         </div>
         <label>
           Username:
-          <input
-            type="text"
-            onChange={this.onUsernameChange}
-          ></input>
+          <input type="text" onChange={this.onUsernameChange}></input>
         </label>
         <label>
           Password:
@@ -126,17 +116,6 @@ export class Signup extends React.Component {
           ></input>
         </label>
         <button onClick={this.signupHandler}>Signup</button>
-        <p>
-          Your signup is{" "}
-          {this.state.hasSignedUp ? "successful" : "unsuccessful"}
-        </p>
-        <p>
-          Your profile is{" "}
-          {this.state.profileCreated ? "created" : "not created"}
-        </p>
-        <p>
-          You are {this.state.isLoggedIn ? "logged in" : "not yet logged in"}
-        </p>
       </div>
     );
   }
