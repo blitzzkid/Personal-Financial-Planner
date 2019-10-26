@@ -40,6 +40,9 @@ export class RetirementPlanner extends React.Component {
           interestRate: res.data[0].interestRate
         });
       })
+      .then(res => {
+        this.calculateNumbers();
+      })
       .catch(err => console.error(err));
   }
 
@@ -119,7 +122,6 @@ export class RetirementPlanner extends React.Component {
               savingsPerMonthInvested={this.state.savingsPerMonthInvested}
               interestRate={this.state.interestRate}
             />
-            <button onClick={this.calculateNumbers}>Show</button>
           </div>
           <div className="chart">
             <Chart
