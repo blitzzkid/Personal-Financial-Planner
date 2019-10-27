@@ -5,33 +5,35 @@ import { Logout } from "./Users/Logout";
 
 export const Header = props => {
   return (
-    <div className="header">
-      <span>FarmHome</span>
-      <span>
-        <Link to="/retirement">Retirement</Link>
+    <header className="header">
+      <span className="farmhome">FarmHome</span>
+      <span className="user">
+        <span>
+          <Link to="/retirement">Retirement</Link>
+        </span>
+        <span>
+          <Link to="/profile">Profile</Link>
+        </span>
+        <span>
+          <Route exact path="/logout">
+            <Logout
+              handleUsernameChange={props.handleUsernameChange}
+              handleUserLogin={props.handleUserLogin}
+            />
+          </Route>
+        </span>
       </span>
-      <span>
-        <Link to="/profile">Profile</Link>
-      </span>
-      <span>
-        <Route exact path="/logout">
-          <Logout
-            handleUsernameChange={props.handleUsernameChange}
-            handleUserLogin={props.handleUserLogin}
-          />
-        </Route>
-      </span>
-    </div>
+    </header>
   );
 };
 
 export const LoginHeader = () => {
   return (
-    <div className="header">
-      <span>FarmHome</span>
+    <header className="login-header">
+      <h1>FarmHome</h1>
       <span>
         <Link to="/signup">Signup</Link>
       </span>
-    </div>
+    </header>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./ProfilePage.css"
 
 export class ProfilePage extends React.Component {
   constructor(props) {
@@ -168,8 +169,8 @@ export class ProfilePage extends React.Component {
             />
             <span> % </span>
           </p>
-          <button onClick={this.updateProfile}>Save</button>
-          <button onClick={this.deleteUserAccount}>Delete Account</button>
+          <button onClick={this.updateProfile} className="save-button">Update Profile</button>
+          <button onClick={this.deleteUserAccount} className="delete-button">Delete Account</button>
           <p>{this.state.isUpdated ? "Your update has been successful" : ""}</p>
           <p>{this.state.isDeleted ? "Your account has been deleted" : ""}</p>
         </div>

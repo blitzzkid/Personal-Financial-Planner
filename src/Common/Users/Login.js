@@ -61,7 +61,7 @@ export class Login extends React.Component {
             onChange={this.onPasswordChange}
           ></input>
         </label>
-        <button onClick={this.loginHandler}>Login</button>
+        <button onClick={this.loginHandler} className="login-button">Login</button>
         <div>Don't have an account yet? Sign up <Link to="/signup">here</Link></div>
       </div>
     );

@@ -1,12 +1,49 @@
 .header {
   background-color: #022b3a;
   height: 10vh;
-  display: flex;
+  display: grid;
+  grid-template-areas: "name name name name user";
 }
 
-.header span {
+.farmhome {
+  grid-area: name;
+  padding-top: 2%;
+  padding-left: 3%;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.user {
+  grid-area: user;
+  padding: 2% 2%;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.login-header {
+  background-color: #022b3a;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-header h1 {
   padding-top: 1%;
   padding-left: 2%;
+  padding-right: 2%;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.login-header span {
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
   color: whitesmoke;
   font-weight: bold;
   font-size: 24px;
@@ -16,3 +53,5 @@ a:visited {
   color: whitesmoke;
   text-decoration: none;
 }
+
+
