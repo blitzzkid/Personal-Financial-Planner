@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import { Login } from "../src/Common/Users/Login";
 import { Signup } from "../src/Common/Users/Signup";
-import { Logout } from "../src/Common/Users/Logout";
 import { ProfilePage } from "./Common/Profiles/ProfilePage";
 import { RetirementPlanner } from "./Components/RetirementPlanner/RetirementPlanner";
 import { Header } from "./Common/Header";
@@ -68,7 +67,10 @@ export default class App extends React.Component {
         <Router>
           <div>
             <nav>
-              <Header />
+              <Header
+                handleUsernameChange={this.handleUsernameChange}
+                handleUserLogin={this.handleUserLogin}
+              />
             </nav>
             <div>
               <Switch>
@@ -78,12 +80,6 @@ export default class App extends React.Component {
                 <Route exact path="/profile">
                   <ProfilePage
                     username={this.state.username}
-                    handleUserLogin={this.handleUserLogin}
-                  />
-                </Route>
-                <Route exact path="/logout">
-                  <Logout
-                    handleUsernameChange={this.handleUsernameChange}
                     handleUserLogin={this.handleUserLogin}
                   />
                 </Route>

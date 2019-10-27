@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import "./Header.css";
+import { Logout } from "./Users/Logout";
 
-export const Header = () => {
+export const Header = props => {
   return (
     <div className="header">
+      <span>Financial Planner</span>
       <span>
         <Link to="/retirement">Retirement</Link>
       </span>
@@ -12,7 +14,12 @@ export const Header = () => {
         <Link to="/profile">Profile</Link>
       </span>
       <span>
-        <Link to="/logout">Logout</Link>
+        <Route exact path="/logout">
+          <Logout
+            handleUsernameChange={props.handleUsernameChange}
+            handleUserLogin={props.handleUserLogin}
+          />
+        </Route>
       </span>
     </div>
   );
@@ -21,6 +28,7 @@ export const Header = () => {
 export const LoginHeader = () => {
   return (
     <div className="header">
+      <span>Financial Planner</span>
       <span>
         <Link to="/">Login</Link>
       </span>
@@ -29,4 +37,4 @@ export const LoginHeader = () => {
       </span>
     </div>
   );
-}
+};

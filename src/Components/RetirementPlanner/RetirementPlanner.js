@@ -111,7 +111,7 @@ export class RetirementPlanner extends React.Component {
     return (
       <div>
         <div className="header">
-          <h1>Retirement Planner</h1>
+          <h1>Welcome!</h1>
         </div>
         <div className="retirement-planner">
           <div className="questionnaire-and-numbers">
