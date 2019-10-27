@@ -30,9 +30,6 @@ export const LoginHeader = () => {
     <div className="header">
       <span>FarmHome</span>
       <span>
-        <Link to="/">Login</Link>
-      </span>
-      <span>
         <Link to="/signup">Signup</Link>
       </span>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 export class Signup extends React.Component {
   constructor(props) {
@@ -116,6 +117,7 @@ export class Signup extends React.Component {
           ></input>
         </label>
         <button onClick={this.signupHandler}>Signup</button>
+        <div>Already have an account? Log in <Link to="/">here</Link></div>
       </div>
     );
   }
