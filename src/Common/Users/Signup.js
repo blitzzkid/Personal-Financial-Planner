@@ -116,7 +116,7 @@ export class Signup extends React.Component {
             onChange={this.handleInputChange}
           ></input>
         </label>
-        <button onClick={this.signupHandler}>Signup</button>
+        <button onClick={this.signupHandler} className="signup-button">Signup</button>
         <div>Already have an account? Log in <Link to="/">here</Link></div>
       </div>
     );

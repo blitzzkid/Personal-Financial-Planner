@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { FundsData } from "./FundsData";
 import { render, wait } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { localSampleData } from "../Assets/localsampledata";
+import { localSampleData } from "../../Assets/localsampledata";
 import mockFetch from "./fetch-utils";
 
 describe("Mutual Funds from World Trading Data API", () => {

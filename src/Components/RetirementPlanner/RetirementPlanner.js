@@ -1,7 +1,7 @@
 import React from "react";
-import { RetirementNumbers } from "./RetirementNumbers";
-import { Chart } from "../Chart";
-import { FundsTable } from "../../Common/FundsTable";
+import { RetirementNumbers } from "../RetirementNumbers/RetirementNumbers";
+import { Chart } from "../SavingsChart/Chart";
+import { FundsTable } from "../FundsTable/FundsTable";
 import "./RetirementPlanner.css";
 import {
   lengthOfWorkingLife,
@@ -12,7 +12,7 @@ import {
   calculateSavingsPerMonthInvested,
   generateSavingsNotInvestedData,
   generateSavingsInvestedData
-} from "./SavingsCalculations";
+} from "../SavingsCalculations/SavingsCalculations";
 import axios from "axios";
 
 export class RetirementPlanner extends React.Component {
