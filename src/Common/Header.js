@@ -6,7 +6,7 @@ import { Logout } from "./Users/Logout";
 export const Header = props => {
   return (
     <div className="header">
-      <span>Financial Planner</span>
+      <span>FarmHome</span>
       <span>
         <Link to="/retirement">Retirement</Link>
       </span>
@@ -28,7 +28,7 @@ export const Header = props => {
 export const LoginHeader = () => {
   return (
     <div className="header">
-      <span>Financial Planner</span>
+      <span>FarmHome</span>
       <span>
         <Link to="/">Login</Link>
       </span>
