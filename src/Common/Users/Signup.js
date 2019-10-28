@@ -106,7 +106,7 @@ export class Signup extends React.Component {
         </div>
         <label>
           Username:
-          <input type="text" onChange={this.onUsernameChange}></input>
+          <input type="text" name="username" onChange={this.onUsernameChange}></input>
         </label>
         <label>
           Password:
