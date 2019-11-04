@@ -1,5 +1,5 @@
 import React from "react";
-import { FundsData } from "./FundsData";
+import { FundsData } from "../FundsData/FundsData";
 import "../RetirementPlanner/RetirementPlanner.css"
 
 export const FundsTable = props => {

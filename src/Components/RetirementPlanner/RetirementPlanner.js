@@ -1,6 +1,6 @@
 import React from "react";
 import { RetirementNumbers } from "../RetirementNumbers/RetirementNumbers";
-import { Chart } from "../SavingsChart/Chart";
+import { Chart } from "../SavingsChart/SavingsChart";
 import { FundsTable } from "../FundsTable/FundsTable";
 import "./RetirementPlanner.css";
 import {

@@ -1,5 +1,5 @@
 import React from "react";
-import { TableBodyRow } from "./FundsTable";
+import { TableBodyRow } from "../FundsTable/FundsTable";
 import { localSampleData } from "../../Assets/localsampledata";
 
 // export class FundsData extends React.Component {

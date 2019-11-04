@@ -5,7 +5,7 @@ export const mock = data => {
     window.fetch = jest.fn();
   }
   window.fetch.mock({
-    json: jest.fn().mockResolvedValue(data),
+    json: jest.fn().mockResolvedValue(data)
   });
 };
 
@@ -14,7 +14,7 @@ export const mockOnce = data => {
     window.fetch = jest.fn();
   }
   window.fetch.mockResolvedValueOnce({
-    json: jest.fn().mockResolvedValue(data),
+    json: jest.fn().mockResolvedValue(data)
   });
 };
 
@@ -27,5 +27,5 @@ export const mockRestore = () => {
 export default {
   mock,
   mockOnce,
-  mockRestore,
+  mockRestore
 };

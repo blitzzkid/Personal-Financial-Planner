@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import "./Header.css";
-import { Logout } from "../Users/Logout";
+import { Logout } from "../Logout/Logout";
 
 export const Header = props => {
   return (

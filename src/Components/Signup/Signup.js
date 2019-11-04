@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./Login.css";
+import "../Login/Login.css";
 import { Link } from "react-router-dom";
 
 export class Signup extends React.Component {
@@ -106,7 +106,11 @@ export class Signup extends React.Component {
         </div>
         <label>
           Username:
-          <input type="text" name="username" onChange={this.onUsernameChange}></input>
+          <input
+            type="text"
+            name="username"
+            onChange={this.onUsernameChange}
+          ></input>
         </label>
         <label>
           Password:
@@ -116,8 +120,12 @@ export class Signup extends React.Component {
             onChange={this.handleInputChange}
           ></input>
         </label>
-        <button onClick={this.signupHandler} className="signup-button">Signup</button>
-        <div>Already have an account? Log in <Link to="/">here</Link></div>
+        <button onClick={this.signupHandler} className="signup-button">
+          Signup
+        </button>
+        <div>
+          Already have an account? Log in <Link to="/">here</Link>
+        </div>
       </div>
     );
   }

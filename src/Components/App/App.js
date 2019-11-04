@@ -6,12 +6,12 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import { Login } from "../src/Common/Users/Login";
-import { Signup } from "../src/Common/Users/Signup";
-import { ProfilePage } from "./Common/Profiles/ProfilePage";
-import { RetirementPlanner } from "./Components/RetirementPlanner/RetirementPlanner";
-import { Header } from "./Common/Header/Header";
-import { LoginHeader } from "./Common/Header/Header";
+import { Login } from "../Login/Login";
+import { Signup } from "../Signup/Signup";
+import { ProfilePage } from "../ProfilePage/ProfilePage";
+import { RetirementPlanner } from "../RetirementPlanner/RetirementPlanner";
+import { Header } from "../Header/Header";
+import { LoginHeader } from "../Header/Header";
 
 export default class App extends React.Component {
   constructor() {

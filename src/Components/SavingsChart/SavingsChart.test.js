@@ -2,7 +2,7 @@ import React from "react";
 import { mount, configure } from "enzyme";
 import { LineSeries } from "react-vis";
 import Adapter from "enzyme-adapter-react-16";
-import { Chart } from "./Chart";
+import { Chart } from "./SavingsChart";
 configure({ adapter: new Adapter() });
 
 describe("Renders out chart accordingly", () => {
