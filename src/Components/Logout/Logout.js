@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "../Login/Login.css";
+import "./Logout.css";
 
 export class Logout extends React.Component {
   logoutHandler = () => {

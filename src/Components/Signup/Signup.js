@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "../Login/Login.css";
+import "./Signup.css";
 import { Link } from "react-router-dom";
 
 export class Signup extends React.Component {
