@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./ProfilePage.css"
+import "./ProfilePage.css";
 
 export class ProfilePage extends React.Component {
   constructor(props) {
@@ -81,11 +81,12 @@ export class ProfilePage extends React.Component {
   render() {
     return (
       <div>
-        <div className="questionnaire">
-          <h2>Knowing more about you</h2>
-          <p>
-            <label htmlFor="current-age">What year were you born in?</label>
-            <br />
+        <div className="profilePage">
+          <div className="profilePage__div">
+            <h2 className="profilePage__heading">Knowing more about you</h2>
+            <label htmlFor="current-age" className="input__label">
+              What year were you born in?
+            </label>
             <input
               required
               type="number"
@@ -94,16 +95,13 @@ export class ProfilePage extends React.Component {
               id="current-age"
               aria-label="current-age"
               name="birthYear"
+              className="input__text"
               value={this.state.birthYear}
               onChange={this.handleInputChange}
             />
-            <span> years old</span>
-          </p>
-          <p>
-            <label htmlFor="retirement-age">
-              At what age do you plan to retire?
+            <label htmlFor="retirement-age" className="input__label">
+              At what age do you plan to retire? (in years)
             </label>
-            <br />
             <input
               required
               type="number"
@@ -112,32 +110,29 @@ export class ProfilePage extends React.Component {
               id="retirement-age"
               aria-label="retirement-age"
               name="retirementAge"
+              className="input__text"
               value={this.state.retirementAge}
               onChange={this.handleInputChange}
             />
-            <span> years old</span>
-          </p>
-          <label htmlFor="passing-age">
-            How old do you expect to live until?
-          </label>
-          <br />
-          <input
-            required
-            type="number"
-            min="1"
-            max="130"
-            id="passing-age"
-            aria-label="passing-age"
-            name="passingAge"
-            value={this.state.passingAge}
-            onChange={this.handleInputChange}
-          />
-          <span> years old</span>
-          <p>
-            <label htmlFor="retirement-income">
-              How much money would you like to have per month during retirement?
+            <label htmlFor="passing-age" className="input__label">
+              How old do you expect to live until? (in years)
             </label>
-            <br />
+            <input
+              required
+              type="number"
+              min="1"
+              max="130"
+              id="passing-age"
+              aria-label="passing-age"
+              name="passingAge"
+              className="input__text"
+              value={this.state.passingAge}
+              onChange={this.handleInputChange}
+            />
+            <label htmlFor="retirement-income" className="input__label">
+              How much money would you like to have per month during retirement?
+              ($ in today's value)
+            </label>
             <input
               required
               type="number"
@@ -146,16 +141,13 @@ export class ProfilePage extends React.Component {
               id="retirement-income"
               aria-label="retirement-income"
               name="retirementIncome"
+              className="input__text"
               value={this.state.retirementIncome}
               onChange={this.handleInputChange}
             />
-            <span> ($ in today's value)</span>
-          </p>
-          <p>
-            <label htmlFor="target-returns">
-              What is your targeted annual returns on investment?
+            <label htmlFor="target-returns" className="input__label">
+              What is your targeted annual returns on investment? (in %)
             </label>
-            <br />
             <input
               required
               type="number"
@@ -164,15 +156,29 @@ export class ProfilePage extends React.Component {
               id="target-returns"
               aria-label="target-returns"
               name="interestRate"
+              className="input__text"
               value={this.state.interestRate}
               onChange={this.handleInputChange}
             />
-            <span> % </span>
-          </p>
-          <button onClick={this.updateProfile} className="save-button">Update Profile</button>
-          <button onClick={this.deleteUserAccount} className="delete-button">Delete Account</button>
-          <p>{this.state.isUpdated ? "Your update has been successful" : ""}</p>
-          <p>{this.state.isDeleted ? "Your account has been deleted" : ""}</p>
+            <section className="profilePage__buttons">
+              <button
+                onClick={this.updateProfile}
+                className="profilePage__saveButton"
+              >
+                Update Profile
+              </button>
+              <button
+                onClick={this.deleteUserAccount}
+                className="profilePage__deleteButton"
+              >
+                Delete Account
+              </button>
+            </section>
+            <section className="profilePage__remarks">
+              {this.state.isUpdated ? "Your update has been successful" : ""}
+              {this.state.isDeleted ? "Your account has been deleted" : ""}
+            </section>
+          </div>
         </div>
       </div>
     );
