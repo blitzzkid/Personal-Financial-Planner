@@ -9,10 +9,14 @@ export const Header = props => {
       <span className="farmhome">FarmHome</span>
       <span className="user">
         <span>
-          <Link to="/retirement">Retirement</Link>
+          <Link to="/retirement" className="header__link">
+            Retirement
+          </Link>
         </span>
         <span>
-          <Link to="/profile">Profile</Link>
+          <Link to="/profile" className="header__link">
+            Profile
+          </Link>
         </span>
         <span>
           <Route exact path="/logout">
@@ -29,10 +33,12 @@ export const Header = props => {
 
 export const LoginHeader = () => {
   return (
-    <header className="login-header">
+    <header className="loginHeader">
       <h1>FarmHome</h1>
-      <span>
-        <Link to="/signup">Signup</Link>
+      <span className="loginHeader__signup">
+        <Link to="/signup" className="header__link">
+          Signup
+        </Link>
       </span>
     </header>
   );

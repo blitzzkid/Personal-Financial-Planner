@@ -84,47 +84,58 @@ export class Signup extends React.Component {
 
   render() {
     return (
-      <div className="signup">
-        <h1>New User Signup</h1>
-        <label>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            onChange={this.handleInputChange}
-          ></input>
-        </label>
-        <div>
-          <label>
-            Last Name:
-            <input
-              type="text"
-              name="lastName"
-              onChange={this.handleInputChange}
-            ></input>
-          </label>
-        </div>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            onChange={this.onUsernameChange}
-          ></input>
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            onChange={this.handleInputChange}
-          ></input>
-        </label>
-        <button onClick={this.signupHandler} className="signup-button">
-          Signup
-        </button>
-        <div>
-          Already have an account? Log in <Link to="/">here</Link>
+      <div className="signupForm">
+        <div className="signupForm__container">
+          <div className="signupForm__heading">Sign up for FarmHome</div>
+          <div className="signupForm__content">
+            <label className="signupForm__label">
+              First Name:
+              <input
+                className="loginForm__input"
+                type="text"
+                name="firstName"
+                onChange={this.handleInputChange}
+              ></input>
+            </label>
+            <div>
+              <label className="signupForm__label">
+                Last Name:
+                <input
+                  className="loginForm__input"
+                  type="text"
+                  name="lastName"
+                  onChange={this.handleInputChange}
+                ></input>
+              </label>
+            </div>
+            <label className="signupForm__label">
+              Username:
+              <input
+                className="loginForm__input"
+                type="text"
+                name="username"
+                onChange={this.onUsernameChange}
+              ></input>
+            </label>
+            <label className="signupForm__label">
+              Password:
+              <input
+                className="loginForm__input"
+                type="password"
+                name="password"
+                onChange={this.handleInputChange}
+              ></input>
+            </label>
+            <button
+              onClick={this.signupHandler}
+              className="signupForm__signupButton"
+            >
+              Signup
+            </button>
+            <div >
+              Already have an account? Log in <Link to="/" className="signupForm__link">here</Link>
+            </div>
+          </div>
         </div>
       </div>
     );

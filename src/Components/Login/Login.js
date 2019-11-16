@@ -42,27 +42,48 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <div className="login-form">
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={this.props.username}
-            onChange={this.onUsernameChange}
-          ></input>
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.onPasswordChange}
-          ></input>
-        </label>
-        <button onClick={this.loginHandler} className="login-button">Login</button>
-        <div>Don't have an account yet? Sign up <Link to="/signup">here</Link></div>
+      <div className="loginForm">
+        <div className="loginForm__container">
+          <div className="loginForm__heading">Log in to FarmHome</div>
+          <div className="loginForm__content">
+            <label className="loginForm__label">
+              Username:
+              <div>
+                <input
+                  className="loginForm__input"
+                  type="text"
+                  name="username"
+                  value={this.props.username}
+                  onChange={this.onUsernameChange}
+                ></input>
+              </div>
+            </label>
+            <label className="loginForm__label">
+              Password:
+              <div>
+                <input
+                  className="loginForm__input"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.onPasswordChange}
+                ></input>
+              </div>
+            </label>
+            <button
+              onClick={this.loginHandler}
+              className="loginForm__loginButton"
+            >
+              Log In
+            </button>
+            <div>
+              Don't have an account? Sign up{" "}
+              <Link to="/signup" className="loginForm__link">
+                here
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

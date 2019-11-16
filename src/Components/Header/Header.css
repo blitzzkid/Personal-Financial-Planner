@@ -24,14 +24,14 @@
   justify-content: space-evenly;
 }
 
-.login-header {
+.loginHeader {
   background-color: #022b3a;
   height: 10vh;
   display: flex;
   justify-content: space-between;
 }
 
-.login-header h1 {
+.loginHeader h1 {
   padding-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
@@ -40,7 +40,7 @@
   font-size: 32px;
 }
 
-.login-header span {
+.loginHeader__signup {
   padding-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
@@ -49,9 +49,8 @@
   font-size: 24px;
 }
 
-a:visited {
+a.header__link:link,
+a.header__link:visited {
   color: whitesmoke;
   text-decoration: none;
 }
-
-
