@@ -5,9 +5,9 @@ import { RetirementPlanner } from "./RetirementPlanner";
 
 describe("The retirement calculator page", () => {
   describe("It renders the headings, questions and statements correctly", () => {
-    it("Shows the heading 'Knowing more about you'", () => {
+    it("Shows the heading 'Welcome!'", () => {
       const { getByText } = render(<RetirementPlanner />);
-      expect(getByText("Knowing more about you")).toBeInTheDocument();
+      expect(getByText("Welcome!")).toBeInTheDocument();
     });
   });
 });

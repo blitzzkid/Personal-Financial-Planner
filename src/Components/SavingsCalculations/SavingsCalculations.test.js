@@ -41,7 +41,10 @@ describe("The calculations for the retirement planner", () => {
   });
   it("Generates the data array for the savings not invested correctly", () => {
     expect(generateSavingsNotInvestedData(30, 31, 1000)).toEqual(
-      expect.arrayContaining([{ x: 30, y: 1000 }, { x: 31, y: 2000 }])
+      expect.arrayContaining([
+        { x: 30, y: 1000 },
+        { x: 31, y: 2000 }
+      ])
     );
   });
   it("Generates the data array for the savings invested correctly", () => {

@@ -14,7 +14,7 @@ describe("Mutual Funds from World Trading Data API", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("should render a list of mutual funds", async () => {
+  xit("should render a list of mutual funds", async () => {
     window.fetch = jest.fn().mockResolvedValueOnce({
       json: jest.fn().mockResolvedValue(localSampleData)
     });
