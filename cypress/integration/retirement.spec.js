@@ -58,9 +58,6 @@ describe("A new user signs up, updates user profile and views retirement plan", 
         cy.get("input[name=retirementIncome]")
           .type("1000")
           .should("have.value", "1000");
-        // cy.get("input[name=interestRate]")
-        //   .type("6")
-        //   .should("have.value", "6");
         cy.get("button")
           .contains("Update Profile")
           .click();
