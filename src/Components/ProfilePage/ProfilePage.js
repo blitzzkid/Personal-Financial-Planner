@@ -152,7 +152,7 @@ export class ProfilePage extends React.Component {
               required
               type="number"
               min="0"
-              max="30"
+              max="100"
               id="target-returns"
               aria-label="target-returns"
               name="interestRate"
