@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 export class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -53,6 +53,7 @@ export class Login extends React.Component {
                   className="loginForm__input"
                   type="text"
                   name="username"
+                  aria-label="username"
                   value={this.props.username}
                   onChange={this.onUsernameChange}
                 ></input>
@@ -65,6 +66,7 @@ export class Login extends React.Component {
                   className="loginForm__input"
                   type="password"
                   name="password"
+                  aria-label="password"
                   value={this.state.password}
                   onChange={this.onPasswordChange}
                 ></input>
@@ -78,9 +80,11 @@ export class Login extends React.Component {
             </button>
             <div>
               Don't have an account? Sign up{" "}
-              <Link to="/signup" className="loginForm__link">
-                here
-              </Link>
+              <BrowserRouter>
+                <Link to="/signup" className="loginForm__link">
+                  here
+                </Link>
+              </BrowserRouter>
             </div>
           </div>
         </div>
