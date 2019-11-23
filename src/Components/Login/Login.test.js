@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Login } from "./Login";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -58,6 +58,27 @@ describe("Testing the Login component", () => {
         </Router>
       );
       expect(getByText("Don't have an account? Sign up")).toBeInTheDocument();
+    });
+  });
+  describe("Fills up the login form", () => {
+    it("Fill up with correct credentials'", () => {
+      const handleUsernameChange = jest.fn();
+      const { getByLabelText } = render(
+        <Router>
+          <Login handleUsernameChange={handleUsernameChange} />
+        </Router>
+      );
+
+      const username = getByLabelText("username");
+      fireEvent.change(username, {
+        target: { value: "user123" }
+      });
+
+      const userPassword = getByLabelText("password");
+      fireEvent.change(userPassword, { target: { value: "pass1234" } });
+
+      expect(username.value).toBe("user123");
+      expect(userPassword.value).toBe("pass1234");
     });
   });
 });
