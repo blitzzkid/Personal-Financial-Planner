@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, BrowserRouter } from "react-router-dom";
 import "./Header.css";
 import { Logout } from "../Logout/Logout";
 
@@ -36,9 +36,11 @@ export const LoginHeader = () => {
     <header className="loginHeader">
       <h1>FarmHome</h1>
       <span className="loginHeader__signup">
-        <Link to="/signup" className="header__link">
-          Signup
-        </Link>
+        <BrowserRouter>
+          <Link to="/signup" className="header__link">
+            Signup
+          </Link>
+        </BrowserRouter>
       </span>
     </header>
   );

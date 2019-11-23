@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 
 export class Signup extends React.Component {
   constructor(props) {
@@ -94,6 +94,7 @@ export class Signup extends React.Component {
                 className="loginForm__input"
                 type="text"
                 name="firstName"
+                aria-label="firstName"
                 onChange={this.handleInputChange}
               ></input>
             </label>
@@ -104,6 +105,7 @@ export class Signup extends React.Component {
                   className="loginForm__input"
                   type="text"
                   name="lastName"
+                  aria-label="lastName"
                   onChange={this.handleInputChange}
                 ></input>
               </label>
@@ -114,6 +116,7 @@ export class Signup extends React.Component {
                 className="loginForm__input"
                 type="text"
                 name="username"
+                aria-label="username"
                 onChange={this.onUsernameChange}
               ></input>
             </label>
@@ -123,6 +126,7 @@ export class Signup extends React.Component {
                 className="loginForm__input"
                 type="password"
                 name="password"
+                aria-label="password"
                 onChange={this.handleInputChange}
               ></input>
             </label>
@@ -132,8 +136,13 @@ export class Signup extends React.Component {
             >
               Signup
             </button>
-            <div >
-              Already have an account? Log in <Link to="/" className="signupForm__link">here</Link>
+            <div>
+              Already have an account? Log in{" "}
+              <BrowserRouter>
+                <Link to="/" className="signupForm__link">
+                  here
+                </Link>
+              </BrowserRouter>
             </div>
           </div>
         </div>
