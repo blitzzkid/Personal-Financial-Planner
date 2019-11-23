@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, BrowserRouter } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import "./Header.css";
 import { Logout } from "../Logout/Logout";
 
@@ -9,28 +9,22 @@ export const Header = props => {
       <span className="farmhome">FarmHome</span>
       <span className="user">
         <span>
-          <BrowserRouter>
-            <Link to="/retirement" className="header__link">
-              Retirement
-            </Link>
-          </BrowserRouter>
+          <Link to="/retirement" className="header__link">
+            Retirement
+          </Link>
         </span>
         <span>
-          <BrowserRouter>
-            <Link to="/profile" className="header__link">
-              Profile
-            </Link>
-          </BrowserRouter>
+          <Link to="/profile" className="header__link">
+            Profile
+          </Link>
         </span>
         <span>
-          <BrowserRouter>
-            <Route exact path="/logout">
-              <Logout
-                handleUsernameChange={props.handleUsernameChange}
-                handleUserLogin={props.handleUserLogin}
-              />
-            </Route>
-          </BrowserRouter>
+          <Route exact path="/logout">
+            <Logout
+              handleUsernameChange={props.handleUsernameChange}
+              handleUserLogin={props.handleUserLogin}
+            />
+          </Route>
         </span>
       </span>
     </header>
@@ -42,11 +36,9 @@ export const LoginHeader = () => {
     <header className="loginHeader">
       <h1>FarmHome</h1>
       <span className="loginHeader__signup">
-        <BrowserRouter>
-          <Link to="/signup" className="header__link">
-            Signup
-          </Link>
-        </BrowserRouter>
+        <Link to="/signup" className="header__link">
+          Signup
+        </Link>
       </span>
     </header>
   );
