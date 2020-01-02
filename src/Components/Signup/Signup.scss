@@ -1,4 +1,9 @@
-.loginForm {
+$brand-color: #022b3a;
+$background-color: whitesmoke;
+$login-form-color: #f7f8fc;
+$link-color: red;
+
+.signupForm {
   font-size: 20px;
   line-height: 1.35em;
   width: 30%;
@@ -6,7 +11,7 @@
   text-align: center;
 }
 
-.loginForm__container {
+.signupForm__container {
   font-size: 20px;
   line-height: 1.35em;
   margin: 5% auto;
@@ -14,32 +19,32 @@
   text-align: center;
 }
 
-.loginForm__heading {
+.signupForm__heading {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35em;
-  background-color: #022b3a;
-  color: whitesmoke;
+  background-color: $brand-color;
+  color: $background-color;
   padding: 1.25em;
   border-radius: 4px 4px 0 0;
 }
 
-.loginForm__content {
+.signupForm__content {
   font-size: 20px;
   line-height: 1.35em;
   background-color: #f7f8fc;
-  color: #022b3a;
+  color: $brand-color;
   padding: 1.25em;
   text-align: left;
   border-radius: 0 0 4px 4px;
 }
 
-.loginForm__label {
+.signupForm__label {
   text-align: left;
   margin: 5%;
 }
 
-.loginForm__input {
+.signupForm__input {
   text-align: left;
   margin: 5%;
   width: 90%;
@@ -48,7 +53,7 @@
   border-radius: 5px;
 }
 
-.loginForm__loginButton {
+.signupForm__signupButton {
   box-shadow: 0px 10px 14px -7px #276873;
   background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
   background-color: #599bb3;
@@ -65,26 +70,17 @@
   width: 90%;
   margin: 5%;
 }
-
-.loginForm__loginButton:hover {
+.signupForm__signupButton:hover {
   background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
   background-color: #408c99;
 }
-
-.loginForm__loginButton:active {
+.signupForm__signupButton:active {
   position: relative;
   top: 1px;
 }
 
-a:hover,
-a:active {
+a.signupForm__link:link,
+a.signupForm__link:visited {
+  color: $link-color;
   text-decoration: none;
 }
-
-a.loginForm__link:link,
-a.loginForm__link:visited {
-  color: red;
-  text-decoration: none;
-}
-
-/*# sourceMappingURL=Login.css.map */

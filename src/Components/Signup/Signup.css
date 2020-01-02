@@ -19,7 +19,7 @@
   font-weight: 700;
   line-height: 1.35em;
   background-color: #022b3a;
-  color: white;
+  color: whitesmoke;
   padding: 1.25em;
   border-radius: 4px 4px 0 0;
 }
@@ -65,10 +65,12 @@
   width: 90%;
   margin: 5%;
 }
+
 .signupForm__signupButton:hover {
   background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
   background-color: #408c99;
 }
+
 .signupForm__signupButton:active {
   position: relative;
   top: 1px;
@@ -79,3 +81,5 @@ a.signupForm__link:visited {
   color: red;
   text-decoration: none;
 }
+
+/*# sourceMappingURL=Signup.css.map */

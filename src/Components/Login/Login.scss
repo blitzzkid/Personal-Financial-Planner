@@ -1,3 +1,8 @@
+$brand-color: #022b3a;
+$background-color: whitesmoke;
+$login-form-color: #f7f8fc;
+$link-color: red;
+
 .loginForm {
   font-size: 20px;
   line-height: 1.35em;
@@ -18,8 +23,8 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35em;
-  background-color: #022b3a;
-  color: whitesmoke;
+  background-color: $brand-color;
+  color: $background-color;
   padding: 1.25em;
   border-radius: 4px 4px 0 0;
 }
@@ -27,8 +32,8 @@
 .loginForm__content {
   font-size: 20px;
   line-height: 1.35em;
-  background-color: #f7f8fc;
-  color: #022b3a;
+  background-color: $login-form-color;
+  color: $brand-color;
   padding: 1.25em;
   text-align: left;
   border-radius: 0 0 4px 4px;
@@ -65,12 +70,10 @@
   width: 90%;
   margin: 5%;
 }
-
 .loginForm__loginButton:hover {
   background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
   background-color: #408c99;
 }
-
 .loginForm__loginButton:active {
   position: relative;
   top: 1px;
@@ -83,8 +86,6 @@ a:active {
 
 a.loginForm__link:link,
 a.loginForm__link:visited {
-  color: red;
+  color: $link-color;
   text-decoration: none;
 }
-
-/*# sourceMappingURL=Login.css.map */

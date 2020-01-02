@@ -1,5 +1,8 @@
+$brand-color: #022b3a;
+$background-color: whitesmoke;
+
 .header {
-  background-color: #022b3a;
+  background-color: $brand-color;
   height: 10vh;
   position: relative;
 }
@@ -8,7 +11,7 @@
   position: absolute;
   top: 20%;
   left: 2%;
-  color: whitesmoke;
+  color: $background-color;
   font-weight: bold;
   font-size: 24px;
 }
@@ -41,8 +44,8 @@
   line-height: 1.35em;
   padding: 4%;
   border-radius: 10px;
-  background-color: #022b3a;
-  color: whitesmoke;
+  background-color: $brand-color;
+  color: $background-color;
 }
 
 .recommended-funds {
@@ -92,4 +95,3 @@ input {
   height: 1.5em;
 }
 
-/*# sourceMappingURL=RetirementPlanner.css.map */

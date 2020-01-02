@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sourceRoot": "",
+  "sources": [
+    "Logout.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACC;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAED;EACC;EACA;;;AAED;EACC;EACA",
+  "file": "Logout.css"
+}

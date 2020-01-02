@@ -1,5 +1,8 @@
+$brand-color: #022b3a;
+$background-color: whitesmoke;
+
 .header {
-  background-color: #022b3a;
+  background-color: $brand-color;
   height: 10vh;
   display: grid;
   grid-template-areas: "name name name name user";
@@ -9,7 +12,7 @@
   grid-area: name;
   padding-top: 2%;
   padding-left: 3%;
-  color: whitesmoke;
+  color: $background-color;
   font-weight: bold;
   font-size: 32px;
 }
@@ -17,7 +20,7 @@
 .user {
   grid-area: user;
   padding: 2% 2%;
-  color: whitesmoke;
+  color: $background-color;
   font-weight: bold;
   font-size: 24px;
   display: flex;
@@ -25,7 +28,7 @@
 }
 
 .loginHeader {
-  background-color: #022b3a;
+  background-color: $brand-color;
   height: 10vh;
   display: flex;
   justify-content: space-between;
@@ -35,7 +38,7 @@
   padding-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
-  color: whitesmoke;
+  color: $background-color;
   font-weight: bold;
   font-size: 32px;
 }
@@ -44,15 +47,13 @@
   padding-top: 1%;
   padding-left: 2%;
   padding-right: 2%;
-  color: whitesmoke;
+  color: $background-color;
   font-weight: bold;
   font-size: 24px;
 }
 
 a.header__link:link,
 a.header__link:visited {
-  color: whitesmoke;
+  color: $background-color;
   text-decoration: none;
 }
-
-/*# sourceMappingURL=Header.css.map */
