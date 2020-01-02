@@ -32,16 +32,17 @@ $background-color: whitesmoke;
   height: 10vh;
   display: flex;
   justify-content: space-between;
+
+  h1 {
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    color: $background-color;
+    font-weight: bold;
+    font-size: 32px;
+  }
 }
 
-.loginHeader h1 {
-  padding-top: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
-  color: $background-color;
-  font-weight: bold;
-  font-size: 32px;
-}
 
 .loginHeader__signup {
   padding-top: 1%;

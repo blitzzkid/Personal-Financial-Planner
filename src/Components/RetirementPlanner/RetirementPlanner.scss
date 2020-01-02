@@ -5,15 +5,15 @@ $background-color: whitesmoke;
   background-color: $brand-color;
   height: 10vh;
   position: relative;
-}
 
-.header h1 {
-  position: absolute;
-  top: 20%;
-  left: 2%;
-  color: $background-color;
-  font-weight: bold;
-  font-size: 24px;
+  h1 {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    color: $background-color;
+    font-weight: bold;
+    font-size: 24px;
+  }
 }
 
 .retirement-planner {
@@ -28,10 +28,10 @@ $background-color: whitesmoke;
   grid-area: numbers;
   font-size: 20px;
   line-height: 1.35em;
-}
 
-.questionnaire-and-numbers p {
-  margin: 1em 0px;
+  p {
+    margin: 1em 0px;
+  }
 }
 
 .questionnaire {
@@ -46,6 +46,15 @@ $background-color: whitesmoke;
   border-radius: 10px;
   background-color: $brand-color;
   color: $background-color;
+
+  h2 {
+    line-height: 1.35em;
+  }
+
+  p {
+    margin: 1em 0px;
+    line-height: 1.35em;
+  }
 }
 
 .recommended-funds {
@@ -55,15 +64,6 @@ $background-color: whitesmoke;
   padding: 4%;
   border-radius: 10px;
   background-color: #bfdbf7;
-}
-
-.retirement-numbers h2 {
-  line-height: 1.35em;
-}
-
-.retirement-numbers p {
-  margin: 1em 0px;
-  line-height: 1.35em;
 }
 
 .chart {
