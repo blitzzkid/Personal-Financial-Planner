@@ -1,6 +1,6 @@
 import React from "react";
 import { TableBodyRow } from "../FundsTable/FundsTable";
-import { localSampleData } from "../../../Assets/localsampledata";
+import { localSampleData } from "../../../Assets/localsampledata.ts";
 
 // export class FundsData extends React.Component {
 //   constructor(props) {
@@ -53,7 +53,10 @@ import { localSampleData } from "../../../Assets/localsampledata";
 export const FundsData = props => {
   return (
     <React.Fragment>
-      <FundsList list={localSampleData.data} interestRate={props.interestRate}/>
+      <FundsList
+        list={localSampleData.data}
+        interestRate={props.interestRate}
+      />
     </React.Fragment>
   );
 };

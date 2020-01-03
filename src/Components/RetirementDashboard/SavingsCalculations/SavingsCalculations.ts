@@ -1,12 +1,14 @@
-export const lengthOfWorkingLife = (currentAge, retirementAge) =>
-  retirementAge - currentAge;
+export const lengthOfWorkingLife = (
+  currentAge: number,
+  retirementAge: number
+) => retirementAge - currentAge;
 
 export const calculateRetirementFund = (
-  currentAge,
-  retirementAge,
-  passingAge,
-  retirementIncome,
-  inflationRate
+  currentAge: number,
+  retirementAge: number,
+  passingAge: number,
+  retirementIncome: number,
+  inflationRate: number
 ) => {
   const lengthOfWorkingLife = retirementAge - currentAge;
   const retirementIncomeFactoringInflation =
@@ -18,36 +20,38 @@ export const calculateRetirementFund = (
 };
 
 export const calculateSavingsPerYearNotInvested = (
-  workingLife,
-  retirementFund
+  workingLife: number,
+  retirementFund: number
 ) => {
   return retirementFund / workingLife;
 };
-export const calculateSavingsPerMonthNotInvested = savingsPerYearNotInvested =>
-  savingsPerYearNotInvested / 12;
+export const calculateSavingsPerMonthNotInvested = (
+  savingsPerYearNotInvested: number
+) => savingsPerYearNotInvested / 12;
 
 export const calculateSavingsPerYearInvested = (
-  workingLife,
-  retirementFund,
-  interestRate
+  workingLife: number,
+  retirementFund: number,
+  interestRate: number
 ) => {
   return (
     (retirementFund * interestRate) / ((1 + interestRate) ** workingLife - 1)
   );
 };
 
-export const calculateSavingsPerMonthInvested = calculateSavingsPerYearInvested =>
-  calculateSavingsPerYearInvested / 12;
+export const calculateSavingsPerMonthInvested = (
+  calculateSavingsPerYearInvested: number
+) => calculateSavingsPerYearInvested / 12;
 
 export const generateSavingsNotInvestedData = (
-  currentAge,
-  retirementAge,
-  savingsPerYearNotInvested
+  currentAge: number,
+  retirementAge: number,
+  savingsPerYearNotInvested: number
 ) => {
   const savingsData = [];
   let j = 1;
   for (let i = currentAge; i <= retirementAge; i++) {
-    let dataPoint = {};
+    let dataPoint: any = {};
     dataPoint.x = i;
     dataPoint.y = savingsPerYearNotInvested * j;
     savingsData.push(dataPoint);
@@ -57,15 +61,15 @@ export const generateSavingsNotInvestedData = (
 };
 
 export const generateSavingsInvestedData = (
-  currentAge,
-  retirementAge,
-  interestRate,
-  savingsPerYearInvested
+  currentAge: number,
+  retirementAge: number,
+  interestRate: number,
+  savingsPerYearInvested: number
 ) => {
   const investmentsData = [];
   let k = 1;
   for (let i = currentAge; i <= retirementAge; i++) {
-    let dataPoint = {};
+    let dataPoint: any = {};
     dataPoint.x = i;
     dataPoint.y =
       (savingsPerYearInvested / interestRate) * ((1 + interestRate) ** k - 1);

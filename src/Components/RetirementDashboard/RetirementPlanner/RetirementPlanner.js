@@ -12,7 +12,7 @@ import {
   calculateSavingsPerMonthInvested,
   generateSavingsNotInvestedData,
   generateSavingsInvestedData
-} from "../SavingsCalculations/SavingsCalculations";
+} from "../SavingsCalculations/SavingsCalculations.ts";
 import axios from "axios";
 
 export class RetirementPlanner extends React.Component {
