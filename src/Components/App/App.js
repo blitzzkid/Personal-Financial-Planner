@@ -9,7 +9,7 @@ import {
 import { Login } from "../Login/Login";
 import { Signup } from "../Signup/Signup";
 import { ProfilePage } from "../ProfilePage/ProfilePage";
-import { RetirementPlanner } from "../RetirementPlanner/RetirementPlanner";
+import { RetirementPlanner } from "../RetirementDashboard/RetirementPlanner/RetirementPlanner";
 import { Header } from "../Header/Header";
 import { LoginHeader } from "../Header/Header";
 
